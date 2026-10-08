@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="그리드 스튜디오">
+<meta name="theme-color" content="#0D0E11">
+<meta name="color-scheme" content="dark">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>그리드 스튜디오</title>
+<style>
+@property --amb1{syntax:'<color>';inherits:true;initial-value:#1B1E26}
+@property --amb2{syntax:'<color>';inherits:true;initial-value:#14161C}
+
+:root{
+  color-scheme:dark;
+  --bg:#0D0E11;
+  --ink:#F5F6F8; --ink2:rgba(245,246,248,.68); --ink3:rgba(245,246,248,.42);
+  --glass:rgba(255,255,255,.085); --glass-line:rgba(255,255,255,.14);
+  --field:rgba(255,255,255,.09);
+  --accent:#F2B300; --warn:#FFB38F;
+  --r-panel:26px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",sans-serif;
+}
+html{background:var(--bg);transition:--amb1 .7s ease,--amb2 .7s ease}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none}
+body{
+  font-family:var(--font);color:var(--ink);background:transparent;
+  -webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(110% 62% at 12% -4%, var(--amb1), transparent 72%),
+    radial-gradient(90% 60% at 96% 104%, var(--amb2), transparent 72%),
+    var(--bg);
+}
+button,input{font:inherit;color:inherit}
+button{touch-action:manipulation;cursor:pointer}
+input[type=text]{-webkit-user-select:text;user-select:text}
+:focus-visible{outline:2px solid #fff;outline-offset:2px}
+[hidden]{display:none!important}
+
+/* ---------- 유리 ---------- */
+.glass{
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(26px) saturate(170%);
+  backdrop-filter:blur(26px) saturate(170%);
+  border:1px solid var(--glass-line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.05),0 14px 34px -14px rgba(0,0,0,.6);
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass{background:rgba(38,40,46,.94)}
+}
+@media (prefers-reduced-transparency:reduce){
+  .glass{background:rgba(38,40,46,.96);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+
+/* ---------- 틀 ---------- */
+.app{height:100vh;height:100dvh;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}
+.top,.stage,.bottom,.panel,.panel-in{min-width:0}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:calc(env(safe-area-inset-top) + 10px) 14px 6px}
+.wordmark{display:none;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.modeseg{display:inline-flex;padding:4px;border-radius:999px}
+.modeseg button{border:0;background:transparent;color:var(--ink2);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;transition:background .2s,color .2s}
+.modeseg button[aria-selected="true"]{background:rgba(255,255,255,.92);color:#101216;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.btn-save{
+  height:42px;padding:0 22px;border:0;border-radius:999px;background:var(--accent);color:#1A1400;font-size:15px;font-weight:700;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 8px 24px -10px rgba(242,179,0,.7);transition:transform .1s,opacity .2s
+}
+.btn-save:active{transform:scale(.96)}
+.btn-save:disabled{opacity:.38;box-shadow:none}
+
+/* ---------- 작업 화면 ---------- */
+.stage{min-height:0;min-width:0;display:flex;flex-direction:column;align-items:center;padding:6px 16px 8px}
+.stage-box{position:relative;flex:1 1 0;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
+#pv,#rec{display:block;background:#fff;touch-action:none;border-radius:3px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 34px 60px -24px rgba(0,0,0,.7)}
+#rec{display:none}
+.stage-meta{margin-top:8px;min-height:16px;font-size:12px;line-height:1.5;color:var(--ink2);text-align:center;font-variant-numeric:tabular-nums}
+.stage-meta .warn{color:var(--warn);font-weight:600}
+
+/* ---------- 아래 도구 ---------- */
+.bottom{display:flex;flex-direction:column;gap:8px;padding:0 12px calc(env(safe-area-inset-bottom) + 8px)}
+.panel{border-radius:var(--r-panel);overflow:hidden}
+.panel.closed{display:none}
+.panel-in{padding:4px 16px 14px;max-height:min(40dvh,340px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.sec{padding:12px 0}
+.sec:not([hidden]) ~ .sec:not([hidden]){border-top:1px solid rgba(255,255,255,.08)}
+.sec h2{margin:0 0 8px;font-size:13px;font-weight:600;color:var(--ink2)}
+.help{margin:10px 0 0;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+.sub{margin:12px 0 6px;font-size:12.5px;color:var(--ink2)}
+.sub:first-child{margin-top:0}
+
+.dock{display:flex;gap:2px;padding:5px;border-radius:999px}
+.dock button{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px 7px;border:0;background:transparent;
+  color:var(--ink2);font-size:11.5px;font-weight:600;border-radius:999px;transition:background .2s,color .2s,transform .1s
+}
+.dock button:active{transform:scale(.96)}
+.dock button svg{width:22px;height:22px}
+.dock button[aria-selected="true"]{background:rgba(255,255,255,.17);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+
+/* ---------- 조작 요소 ---------- */
+.btn{
+  height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--glass-line);background:rgba(255,255,255,.1);
+  color:var(--ink);font-size:14px;font-weight:600;transition:transform .1s,background .15s,opacity .2s;white-space:nowrap
+}
+.btn:active{transform:scale(.97);background:rgba(255,255,255,.18)}
+.btn.strong{background:rgba(255,255,255,.94);border-color:transparent;color:#101216}
+.btn.strong:active{background:#fff}
+.btn.primary{background:var(--accent);border-color:transparent;color:#1A1400}
+.btn:disabled{opacity:.38;transform:none}
+.row{display:flex;gap:8px}
+.row .btn{flex:1 1 0;min-width:0;padding:0 8px}
+.row + .row{margin-top:8px}
+.full{width:100%}
+
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px;padding:4px;border-radius:999px;background:var(--field);border:1px solid var(--glass-line)}
+.seg button{border:0;background:transparent;color:var(--ink2);padding:9px 4px;border-radius:999px;font-size:13.5px;font-weight:600;white-space:nowrap;transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:rgba(255,255,255,.92);color:#101216}
+
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 0 4px;margin:0 -16px;padding-left:16px;padding-right:16px;scroll-snap-type:x proximity;scroll-padding-left:16px}
+.chips::-webkit-scrollbar{display:none}
+.preset{flex:none;scroll-snap-align:start;min-width:112px;text-align:left;padding:10px 14px;border-radius:18px;border:1px solid var(--glass-line);background:var(--field);transition:background .2s,color .2s}
+.preset b{display:block;font-size:13.5px;font-weight:700;white-space:nowrap}
+.preset span{display:block;margin-top:2px;font-size:11.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.preset[aria-pressed="true"]{background:rgba(255,255,255,.92);color:#101216;border-color:transparent}
+.preset[aria-pressed="true"] span{color:rgba(16,18,22,.62)}
+
+.field{display:grid;grid-template-columns:76px 1fr 50px;align-items:center;gap:10px;margin:4px 0;font-size:13.5px}
+.field output{text-align:right;color:var(--ink2);font-variant-numeric:tabular-nums;font-size:12.5px}
+input[type=range]{width:100%;accent-color:#fff;margin:10px 0}
+.swatches{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sw{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.28);padding:0}
+.sw[aria-pressed="true"]{outline:2px solid #fff;outline-offset:3px}
+input[type=color]{-webkit-appearance:none;appearance:none;width:30px;height:30px;border:1px solid rgba(255,255,255,.28);padding:0;border-radius:50%;background:conic-gradient(#ff5a5a,#ffd23f,#5aff8a,#4fd6ff,#7a6bff,#ff5ad2,#ff5a5a)}
+input[type=color]::-webkit-color-swatch-wrapper{padding:0}
+input[type=color]::-webkit-color-swatch{border:0;border-radius:50%;opacity:0}
+input[type=color]::-moz-color-swatch{border:0;border-radius:50%;opacity:0}
+.text{width:100%;height:44px;border:1px solid var(--glass-line);border-radius:14px;padding:0 14px;font-size:16px;background:var(--field);color:var(--ink)}
+.text::placeholder{color:var(--ink3)}
+
+.cellbox{display:none;margin-top:12px;padding:12px;background:rgba(255,255,255,.07);border-radius:18px}
+.cellbox.on{display:block}
+.cellbox .title{font-weight:700;font-size:13.5px}
+.cellbox .field{margin-top:4px}
+
+details{font-size:13px;line-height:1.65;color:var(--ink2)}
+summary{cursor:pointer;color:var(--ink);font-weight:600}
+details ol{padding-left:18px;margin:8px 0}
+
+body[data-mode="split"] .only-collage{display:none}
+body[data-mode="collage"] .only-split{display:none}
+body.locked .top,body.locked .bottom{pointer-events:none;opacity:.5}
+
+/* ---------- 처리 중 · 알림 · 저장 시트 ---------- */
+.busy{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(5,6,8,.4);z-index:25}
+.busy.on{display:flex}
+.busy-card{display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px 24px;border-radius:22px;font-weight:600;font-size:14px}
+.bar{width:180px;height:4px;background:rgba(255,255,255,.18);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#fff;transition:width .15s}
+
+.toast{
+  position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 66px);transform:translate(-50%,-8px);
+  background:rgba(34,36,42,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid var(--glass-line);
+  color:var(--ink);padding:12px 18px;border-radius:20px;font-size:13.5px;line-height:1.55;width:max-content;max-width:min(92vw,440px);
+  opacity:0;transition:opacity .2s,transform .2s;z-index:30;pointer-events:none
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.sheet-bg{position:fixed;inset:0;background:rgba(5,6,8,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.sheet-bg.on{display:flex}
+.sheet{
+  width:min(560px,100%);max-height:92dvh;overflow:auto;padding:22px 20px calc(20px + env(safe-area-inset-bottom));
+  border-radius:28px 28px 0 0;background:rgba(32,34,40,.8);-webkit-backdrop-filter:blur(34px) saturate(170%);backdrop-filter:blur(34px) saturate(170%);
+  border:1px solid var(--glass-line);border-bottom:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.22);-webkit-user-select:none;user-select:none
+}
+.sheet h2{margin:0;font-size:18px}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:14px 0 0}
+.thumbs figure{margin:0}
+.thumbs img{width:100%;display:block;border-radius:6px;background:rgba(255,255,255,.06)}
+.thumbs figcaption{font-size:11.5px;color:var(--ink2);margin-top:4px;text-align:center}
+.single img{display:block;max-width:100%;max-height:50dvh;margin:14px auto 0;border-radius:6px;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.sheet video{display:block;width:auto;max-width:100%;max-height:52dvh;margin:14px auto 0;background:#000;border-radius:10px}
+.sheet .row{margin-top:16px}
+.picker{position:fixed;left:-9999px;top:0;opacity:0;width:1px;height:1px}
+
+/* ---------- 넓은 화면 ---------- */
+@media (min-width:861px){
+  .app{grid-template-columns:minmax(0,1fr) 392px;grid-template-rows:auto minmax(0,1fr)}
+  .top{grid-column:1/-1;padding:16px 20px 8px}
+  .wordmark{display:block}
+  .stage{grid-column:1;grid-row:2;padding:8px 12px 24px 24px}
+  .bottom{grid-column:2;grid-row:2;min-height:0;padding:4px 20px 24px 8px}
+  .dock{order:-1}
+  .panel{flex:1;min-height:0;display:flex;flex-direction:column}
+  .panel.closed{display:flex}
+  .panel-in{max-height:none;flex:1;min-height:0}
+  .chips{flex-wrap:wrap;overflow:visible;margin:0;padding:0}
+  .preset{min-width:0;flex:1 1 calc(50% - 4px)}
+  .sheet-bg{align-items:center}
+  .sheet{border-radius:28px;border-bottom:1px solid var(--glass-line)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-mode="collage">
+<div class="app">
+  <header class="top">
+    <div class="wordmark">그리드 스튜디오</div>
+    <div class="modeseg glass" role="tablist" aria-label="작업 방식">
+      <button role="tab" aria-selected="true" data-mode="collage">콜라주</button>
+      <button role="tab" aria-selected="false" data-mode="split">피드 분할</button>
+    </div>
+    <button class="btn-save" id="saveBtn">저장</button>
+  </header>
+
+  <section class="stage">
+    <div class="stage-box" id="stageBox">
+      <canvas id="pv" aria-label="미리보기"></canvas>
+      <canvas id="rec" aria-label="녹화 화면"></canvas>
+    </div>
+    <div class="stage-meta" id="meta"></div>
+  </section>
+
+  <div class="bottom">
+    <section class="panel glass" id="panel">
+      <div class="panel-in">
+
+        <!-- 콜라주: 사진 -->
+        <div class="sec only-collage" data-tab="photo">
+          <div class="row">
+            <button class="btn strong" id="addBtn">사진 추가</button>
+            <button class="btn" id="clearBtn">모두 비우기</button>
+          </div>
+          <p class="help">빈 칸을 누르면 그 칸에 사진을 넣을 수 있습니다. 사진을 끌면 위치가, 두 손가락으로 벌리면(PC는 마우스 휠) 크기가 바뀝니다.</p>
+          <div class="cellbox" id="cellBox">
+            <div class="title" id="cellTitle">선택한 칸</div>
+            <div class="field"><label for="cellZoom">확대</label><input type="range" id="cellZoom" min="100" max="400" step="1" value="100"><output id="cellZoomOut">100%</output></div>
+            <div class="row">
+              <button class="btn" id="cellPrev">앞 칸과 교환</button>
+              <button class="btn" id="cellNext">뒤 칸과 교환</button>
+            </div>
+            <div class="row">
+              <button class="btn" id="cellReplace">바꾸기</button>
+              <button class="btn" id="cellReset">처음 위치로</button>
+              <button class="btn" id="cellRemove">비우기</button>
+            </div>
+          </div>
+        </div>
+        <div class="sec only-collage" data-tab="photo">
+          <details>
+            <summary>아이폰 홈 화면에 추가하는 법</summary>
+            <ol>
+              <li>사파리에서 이 페이지 주소를 엽니다.</li>
+              <li>공유 버튼을 누릅니다.</li>
+              <li>'홈 화면에 추가'를 누른 뒤 '추가'를 누릅니다.</li>
+            </ol>
+            사진은 기기 안에서만 처리되며 어디에도 올라가지 않습니다. 그리드 스튜디오 v1.1
+          </details>
+        </div>
+
+        <!-- 콜라주: 배열 · 크기 -->
+        <div class="sec only-collage" data-tab="layout">
+          <h2>배열</h2>
+          <div class="seg" id="gridSeg">
+            <button data-v="1">1 × 1</button><button data-v="2">2 × 2</button><button data-v="3">3 × 3</button>
+          </div>
+        </div>
+        <div class="sec only-collage" data-tab="layout">
+          <h2>크기</h2>
+          <div class="sub">인스타그램</div>
+          <div class="chips" id="presetInsta"></div>
+          <div class="sub">사진 인화 (300dpi)</div>
+          <div class="chips" id="presetPrint"></div>
+          <p class="help" id="presetHelp"></p>
+        </div>
+
+        <!-- 콜라주: 꾸미기 -->
+        <div class="sec only-collage" data-tab="style">
+          <div id="decoFields"></div>
+          <div class="sub">배경색</div>
+          <div class="swatches" id="swatches"></div>
+          <div class="sub">아래 문구</div>
+          <input class="text" id="caption" type="text" maxlength="40" placeholder="예: 2026 가을, 제주">
+          <p class="help">문구는 '아래 여백'을 늘린 자리에 들어갑니다. 인화용 폴라로이드 느낌을 낼 때 쓰면 좋습니다.</p>
+        </div>
+
+        <!-- 콜라주: 효과 -->
+        <div class="sec only-collage" data-tab="motion">
+          <div class="sub">효과</div>
+          <div class="seg" id="fxSeg">
+            <button data-v="sparkle">반짝</button><button data-v="fade">페이드</button><button data-v="pop">톡톡</button><button data-v="shutter">셔터</button>
+          </div>
+          <div class="sub">등장 순서</div>
+          <div class="seg" id="orderSeg">
+            <button data-v="seq">순서대로</button><button data-v="center">가운데부터</button><button data-v="random">무작위</button>
+          </div>
+          <div id="fxFields" style="margin-top:8px"></div>
+          <div class="row" style="margin-top:10px">
+            <button class="btn" id="playBtn">미리보기 재생</button>
+            <button class="btn strong" id="videoBtn">동영상 만들기</button>
+          </div>
+          <p class="help" id="videoHelp"></p>
+        </div>
+
+        <!-- 피드 분할 -->
+        <div class="sec only-split" data-tab="s-photo">
+          <button class="btn strong full" id="splitAdd">사진 선택</button>
+          <div class="field" style="margin-top:12px"><label for="splitZoom">확대</label><input type="range" id="splitZoom" min="100" max="400" step="1" value="100"><output id="splitZoomOut">100%</output></div>
+          <p class="help">미리보기에서 사진을 끌어 위치를 맞추세요.</p>
+        </div>
+        <div class="sec only-split" data-tab="s-split">
+          <h2>줄 수</h2>
+          <div class="seg" id="rowSeg">
+            <button data-v="1">1줄 (3장)</button><button data-v="2">2줄 (6장)</button><button data-v="3">3줄 (9장)</button>
+          </div>
+          <p class="help">미리보기의 흰 선이 잘리는 위치이고, 숫자는 인스타그램에 올리는 순서입니다. 1번부터 차례로 올리면 프로필에서 한 장으로 이어집니다. 조각은 프로필 격자(3:4)에 맞춘 1080 × 1440 px입니다. 프로필 격자에는 칸 사이에 간격이 있어 이음매가 살짝 어긋나 보일 수 있습니다.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <nav class="dock glass" id="dock" role="tablist" aria-label="도구">
+      <button class="only-collage" role="tab" data-tab="photo" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l4.5-4.5 3.5 3.5 3-3 4.5 4.5"/></svg>사진
+      </button>
+      <button class="only-collage" role="tab" data-tab="layout" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>배열
+      </button>
+      <button class="only-collage" role="tab" data-tab="style" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>꾸미기
+      </button>
+      <button class="only-collage" role="tab" data-tab="motion" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3.5c.6 4.2 2.3 5.9 6.5 6.5-4.2.6-5.9 2.3-6.5 6.5-.6-4.2-2.3-5.9-6.5-6.5 4.2-.6 5.9-2.3 6.5-6.5z"/><path d="M18.5 15.5v4M16.5 17.5h4"/></svg>효과
+      </button>
+      <button class="only-split" role="tab" data-tab="s-photo" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l4.5-4.5 3.5 3.5 3-3 4.5 4.5"/></svg>사진
+      </button>
+      <button class="only-split" role="tab" data-tab="s-split" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9.3 4v16M14.7 4v16"/></svg>분할
+      </button>
+    </nav>
+  </div>
+</div>
+
+<div class="busy" id="busy"><div class="busy-card glass"><span id="busyText">처리 중</span><div class="bar"><i id="busyBar"></i></div></div></div>
+<input type="file" id="fileMulti" class="picker" accept="image/*" multiple>
+<input type="file" id="fileOne" class="picker" accept="image/*">
+
+<div class="sheet-bg" id="sheetBg">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <h2 id="sheetTitle"></h2>
+    <p class="help" id="sheetNote"></p>
+    <div id="sheetBody"></div>
+    <div class="row">
+      <button class="btn" id="sheetShare">사진 앱에 저장·공유</button>
+      <button class="btn" id="sheetDownload">다운로드</button>
+    </div>
+    <button class="btn full" id="sheetClose" style="margin-top:8px">닫기</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const nextFrame = () => new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
+
+/* ---------- 설정 ---------- */
+const PRESETS = [
+  {id:'sq',  group:'insta', name:'정사각 1:1',      w:1080, h:1080},
+  {id:'p45', group:'insta', name:'세로 4:5',        w:1080, h:1350},
+  {id:'p34', group:'insta', name:'세로 3:4',        w:1080, h:1440},
+  {id:'st',  group:'insta', name:'릴스·스토리 9:16', w:1080, h:1920},
+  {id:'r46', group:'print', name:'4×6 인치',        w:1200, h:1800, print:true},
+  {id:'r57', group:'print', name:'5×7 인치',        w:1500, h:2100, print:true},
+];
+const PB = Object.fromEntries(PRESETS.map(p => [p.id, p]));
+const PRESET_HELP = {
+  sq:'피드에서는 정사각으로 보이고, 프로필 격자(3:4)에서는 양옆이 잘려 보입니다.',
+  p45:'피드에서 가장 무난한 크기입니다. 프로필 격자(3:4)에서는 양옆이 조금 잘립니다.',
+  p34:'프로필 격자와 비율이 같아 프로필에서도 잘리지 않습니다.',
+  st:'릴스·스토리 전체 화면 크기입니다. 움직이는 효과와 가장 잘 어울립니다.',
+  r46:'4×6(4R) 인화용입니다. 300dpi 기준 1200 × 1800 px로 저장됩니다.',
+  r57:'5×7 인화용입니다. 300dpi 기준 1500 × 2100 px로 저장됩니다.',
+};
+const SWATCHES = ['#FFFFFF', '#F4F1EA', '#E4E6E9', '#16191F', '#F2B300'];
+const MAX_COLLAGE = 2400, MAX_SPLIT = 4400;
+const DUR = {sparkle:0.95, fade:0.8, pop:0.55, shutter:0.35};
+const START = 0.4;
+const TAB_DEFAULT = {collage:'photo', split:'s-photo'};
+
+const S = {
+  mode:'collage', grid:3, preset:'p45', tab:'photo', open:true,
+  gap:12, margin:0, bottom:0, radius:0, bg:'#FFFFFF', caption:'',
+  cells:Array(9).fill(null), sel:-1,
+  fx:'sparkle', order:'seq', interval:0.45, hold:2, seed:1,
+  split:{rows:3, cell:null},
+};
+
+/* ---------- 요소 ---------- */
+const pv = $('#pv'), pctx = pv.getContext('2d');
+const rec = $('#rec');
+const stageBox = $('#stageBox');
+const fileMulti = $('#fileMulti'), fileOne = $('#fileOne');
+let PW = 1, PH = 1, DPR = 1;
+let pendingIdx = -1;
+let playing = false, playRAF = 0, playCache = null, recording = false;
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const wide = () => matchMedia('(min-width:861px)').matches;
+
+/* ---------- 유틸 ---------- */
+function toast(msg, ms = 3200){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('on'), ms);
+}
+function showBusy(text, ratio){
+  $('#busy').classList.add('on'); $('#busyText').textContent = text;
+  $('#busyBar').style.width = ratio == null ? '0' : (ratio * 100).toFixed(0) + '%';
+}
+function hideBusy(){ $('#busy').classList.remove('on'); }
+function isLight(hex){
+  const h = hex.replace('#', ''); if (h.length !== 6) return true;
+  const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  return (0.299*r + 0.587*g + 0.114*b) / 255 > 0.55;
+}
+function stamp(){
+  const d = new Date(), p = n => String(n).padStart(2, '0');
+  return `${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`;
+}
+function roundPath(ctx, x, y, w, h, r){
+  r = Math.max(0, Math.min(r, w/2, h/2));
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+function toBlob(canvas, type, q){
+  return new Promise((res, rej) => {
+    canvas.toBlob(b => {
+      if (b) return res(b);
+      try {
+        const url = canvas.toDataURL(type, q), bin = atob(url.split(',')[1]);
+        const arr = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+        res(new Blob([arr], {type}));
+      } catch (e) { rej(e); }
+    }, type, q);
+  });
+}
+async function setJpegDpi(blob, dpi){
+  const buf = new Uint8Array(await blob.arrayBuffer());
+  if (buf[0]===0xFF && buf[1]===0xD8 && buf[2]===0xFF && buf[3]===0xE0 &&
+      buf[6]===0x4A && buf[7]===0x46 && buf[8]===0x49 && buf[9]===0x46){
+    buf[13] = 1; buf[14] = dpi >> 8; buf[15] = dpi & 255; buf[16] = dpi >> 8; buf[17] = dpi & 255;
+  }
+  return new Blob([buf], {type:'image/jpeg'});
+}
+function mulberry32(a){ return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const easeOutCubic = x => 1 - Math.pow(1 - x, 3);
+const easeInOut = x => x < .5 ? 2*x*x : 1 - Math.pow(-2*x + 2, 2) / 2;
+const easeOutBack = x => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3*Math.pow(x - 1, 3) + c1*Math.pow(x - 1, 2); };
+
+/* ---------- 배경 분위기(사진 색) ---------- */
+function avgColor(c){
+  try {
+    const t = document.createElement('canvas'); t.width = t.height = 8;
+    const x = t.getContext('2d'); x.drawImage(c, 0, 0, 8, 8);
+    const d = x.getImageData(0, 0, 8, 8).data; let r = 0, g = 0, b = 0;
+    for (let i = 0; i < d.length; i += 4){ r += d[i]; g += d[i+1]; b += d[i+2]; }
+    const n = d.length / 4; return [r/n, g/n, b/n];
+  } catch (_) { return null; }
+}
+function updateAmbient(){
+  const list = (S.mode === 'split' ? [S.split.cell] : S.cells.slice(0, S.grid*S.grid)).filter(c => c && c.avg);
+  const st = document.documentElement.style;
+  if (!list.length){ st.setProperty('--amb1', '#1B1E26'); st.setProperty('--amb2', '#14161C'); return; }
+  const f = a => `rgb(${a.map(v => Math.max(16, Math.round(v * 0.5))).join(' ')})`;
+  st.setProperty('--amb1', f(list[0].avg));
+  st.setProperty('--amb2', f(list[list.length - 1].avg));
+}
+
+/* ---------- 사진 불러오기 ---------- */
+async function loadImage(file, maxEdge){
+  const heic = /hei[cf]/i.test(file.type) || /\.(heic|heif)$/i.test(file.name);
+  const url = URL.createObjectURL(file);
+  try {
+    const img = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = url; });
+    const ow = img.naturalWidth, oh = img.naturalHeight;
+    if (!ow || !oh) throw new Error('size');
+    const k = Math.min(1, maxEdge / Math.max(ow, oh));
+    const c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(ow * k)); c.height = Math.max(1, Math.round(oh * k));
+    const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height);
+    return {img:c, ow, oh, zoom:1, nx:0, ny:0, avg:avgColor(c)};
+  } catch (e) {
+    throw new Error(heic ? 'HEIC' : 'LOAD');
+  } finally { URL.revokeObjectURL(url); }
+}
+function freeCell(c){ if (c && c.img){ c.img.width = 0; c.img.height = 0; } }
+function loadErrorMsg(e){
+  return e.message === 'HEIC'
+    ? 'HEIC 사진은 이 브라우저에서 열 수 없습니다. 아이폰에서 이 앱으로 직접 넣거나, 아이폰 설정 > 카메라 > 포맷 > 높은 호환성으로 바꿔 주세요.'
+    : '이 파일은 사진으로 열 수 없습니다. JPG 또는 PNG 파일을 넣어 주세요.';
+}
+
+/* ---------- 배치 계산 ---------- */
+function exportDims(){ return S.mode === 'split' ? {W:3240, H:1440*S.split.rows} : {W:PB[S.preset].w, H:PB[S.preset].h}; }
+function layout(W, H){
+  const u = W / 1080, n = S.grid;
+  const m = S.margin*u, g = n > 1 ? S.gap*u : 0, fb = S.bottom*u, rad = S.radius*u;
+  const gw = Math.max(1, W - 2*m), gh = Math.max(1, H - 2*m - fb);
+  const cw = Math.max(1, (gw - (n-1)*g) / n), ch = Math.max(1, (gh - (n-1)*g) / n);
+  const cells = [];
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) cells.push({x:m + c*(cw+g), y:m + r*(ch+g), w:cw, h:ch});
+  return {u, cells, rad, foot:{x:m, y:m + gh, w:gw, h:Math.max(0, H - m - (m + gh))}};
+}
+function placement(cell, cw, ch){
+  const iw = cell.img.width, ih = cell.img.height;
+  const s = Math.max(cw / iw, ch / ih) * cell.zoom;
+  const dw = iw * s, dh = ih * s;
+  return {s, dw, dh, dx:-(dw - cw)/2 * (1 + cell.nx), dy:-(dh - ch)/2 * (1 + cell.ny)};
+}
+function lowRes(cell, rect){ return placement(cell, rect.w, rect.h).s > 1.3; }
+function filled(){ const n = S.grid*S.grid; let k = 0; for (let i = 0; i < n; i++) if (S.cells[i]) k++; return k; }
+
+/* ---------- 그리기 ---------- */
+function drawCaption(ctx, L, W, alpha){
+  const text = S.caption.trim();
+  if (!text || L.foot.h < 8 || alpha <= 0) return;
+  const fs = Math.min(L.foot.h * 0.4, W * 0.052);
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.fillStyle = isLight(S.bg) ? '#2A2E35' : '#F2F2F2';
+  ctx.font = `600 ${fs}px ${getComputedStyle(document.body).fontFamily}`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(text, W/2, L.foot.y + L.foot.h/2, L.foot.w * 0.92);
+  ctx.restore();
+}
+function drawCollage(ctx, W, H, preview){
+  ctx.setTransform(1,0,0,1,0,0); ctx.globalAlpha = 1;
+  ctx.fillStyle = S.bg; ctx.fillRect(0, 0, W, H);
+  const L = layout(W, H), light = isLight(S.bg);
+  const ex = exportDims(), Le = preview ? layout(ex.W, ex.H) : null;
+  L.cells.forEach((r, i) => {
+    const cell = S.cells[i];
+    ctx.save();
+    roundPath(ctx, r.x, r.y, r.w, r.h, L.rad); ctx.clip();
+    if (cell){
+      const p = placement(cell, r.w, r.h);
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(cell.img, r.x + p.dx, r.y + p.dy, p.dw, p.dh);
+    } else {
+      ctx.fillStyle = light ? 'rgba(22,25,31,.07)' : 'rgba(255,255,255,.12)';
+      ctx.fillRect(r.x, r.y, r.w, r.h);
+      if (preview){
+        const s = Math.min(r.w, r.h) * 0.14, cx = r.x + r.w/2, cy = r.y + r.h/2;
+        ctx.strokeStyle = light ? 'rgba(22,25,31,.35)' : 'rgba(255,255,255,.5)';
+        ctx.lineWidth = Math.max(1.5, s * 0.12); ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(cx - s, cy); ctx.lineTo(cx + s, cy); ctx.moveTo(cx, cy - s); ctx.lineTo(cx, cy + s); ctx.stroke();
+      }
+    }
+    ctx.restore();
+    if (preview && cell){
+      if (i === S.sel){
+        const lw = Math.max(3, W / 160);
+        ctx.save(); ctx.strokeStyle = '#F2B300'; ctx.lineWidth = lw;
+        roundPath(ctx, r.x + lw/2, r.y + lw/2, r.w - lw, r.h - lw, L.rad); ctx.stroke(); ctx.restore();
+      }
+      if (lowRes(cell, Le.cells[i])){
+        const fs = Math.max(10, Math.min(r.w * 0.09, 15 * DPR)), pad = fs * 0.45;
+        ctx.save();
+        ctx.font = `700 ${fs}px ${getComputedStyle(document.body).fontFamily}`;
+        const tw = ctx.measureText('해상도 낮음').width;
+        ctx.fillStyle = 'rgba(180,65,27,.92)';
+        roundPath(ctx, r.x + pad, r.y + pad, tw + pad*2, fs + pad*1.4, fs*0.35); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.textBaseline = 'middle';
+        ctx.fillText('해상도 낮음', r.x + pad*2, r.y + pad + (fs + pad*1.4)/2);
+        ctx.restore();
+      }
+    }
+  });
+  drawCaption(ctx, L, W, 1);
+}
+function drawSplit(ctx, W, H, preview){
+  ctx.setTransform(1,0,0,1,0,0); ctx.globalAlpha = 1;
+  ctx.fillStyle = '#F7F7F7'; ctx.fillRect(0, 0, W, H);
+  const sc = S.split.cell, rows = S.split.rows;
+  if (sc){
+    const p = placement(sc, W, H);
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(sc.img, p.dx, p.dy, p.dw, p.dh);
+  } else if (preview){
+    ctx.fillStyle = '#5F6670';
+    ctx.font = `600 ${Math.max(12, W*0.032)}px ${getComputedStyle(document.body).fontFamily}`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('눌러서 사진 선택', W/2, H/2);
+    ctx.textAlign = 'start';
+  }
+  if (!preview) return;
+  const tw = W / 3, th = H / rows, N = rows * 3;
+  ctx.strokeStyle = 'rgba(255,255,255,.95)'; ctx.lineWidth = Math.max(2, W / 360);
+  ctx.beginPath();
+  for (let c = 1; c < 3; c++){ ctx.moveTo(c*tw, 0); ctx.lineTo(c*tw, H); }
+  for (let r = 1; r < rows; r++){ ctx.moveTo(0, r*th); ctx.lineTo(W, r*th); }
+  ctx.stroke();
+  const rad = tw * 0.085;
+  ctx.font = `700 ${rad * 1.05}px ${getComputedStyle(document.body).fontFamily}`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  for (let k = 0; k < N; k++){
+    const r = Math.floor(k / 3), c = k % 3, x = c*tw + rad*1.6, y = r*th + rad*1.6;
+    ctx.fillStyle = 'rgba(22,25,31,.78)'; ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.fillText(String(N - k), x, y + rad*0.05);
+  }
+  ctx.textAlign = 'start';
+}
+function draw(){
+  if (playing || recording) return;
+  if (S.mode === 'collage') drawCollage(pctx, PW, PH, true);
+  else drawSplit(pctx, PW, PH, true);
+  updateMeta();
+}
+function updateMeta(){
+  const m = $('#meta');
+  if (S.mode === 'split'){
+    const n = S.split.rows * 3;
+    let html = `조각 ${n}장, 각 1080 × 1440 px`;
+    const sc = S.split.cell;
+    if (sc && placement(sc, 3240, 1440*S.split.rows).s > 1.3) html += ` <span class="warn">사진 해상도가 낮아 흐릿할 수 있습니다</span>`;
+    m.innerHTML = html;
+    return;
+  }
+  const p = PB[S.preset];
+  let html = `${p.w} × ${p.h} px${p.print ? ' (300dpi)' : ''}`;
+  const L = layout(p.w, p.h), n = S.grid*S.grid;
+  let low = 0; for (let i = 0; i < n; i++) if (S.cells[i] && lowRes(S.cells[i], L.cells[i])) low++;
+  if (low) html += ` <span class="warn">해상도가 낮은 칸 ${low}개</span>`;
+  m.innerHTML = html;
+}
+
+/* ---------- 미리보기 크기 ---------- */
+function sizePreview(){
+  const {W, H} = exportDims();
+  const bw = stageBox.clientWidth, bh = stageBox.clientHeight;
+  if (!bw || !bh) return;
+  const k = Math.min(bw / W, bh / H);
+  const cw = Math.max(1, Math.floor(W * k)), ch = Math.max(1, Math.floor(H * k));
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  pv.style.width = rec.style.width = cw + 'px';
+  pv.style.height = rec.style.height = ch + 'px';
+  PW = Math.round(cw * DPR); PH = Math.round(ch * DPR);
+  if (pv.width !== PW || pv.height !== PH){ pv.width = PW; pv.height = PH; }
+  if (playing) stopPlay();
+  draw();
+}
+if (window.ResizeObserver) new ResizeObserver(() => sizePreview()).observe(stageBox);
+else window.addEventListener('resize', sizePreview);
+
+/* ---------- 미리보기 조작 ---------- */
+function getPos(e){
+  const r = pv.getBoundingClientRect();
+  return {x:(e.clientX - r.left) * PW / r.width, y:(e.clientY - r.top) * PH / r.height};
+}
+function hit(x, y){
+  if (S.mode === 'split') return 0;
+  const L = layout(PW, PH);
+  return L.cells.findIndex(r => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h);
+}
+function target(idx){ return S.mode === 'split' ? S.split.cell : (idx >= 0 ? S.cells[idx] : null); }
+function rectFor(idx){ return S.mode === 'split' ? {x:0, y:0, w:PW, h:PH} : layout(PW, PH).cells[idx]; }
+function panBy(idx, dx, dy){
+  const t = target(idx); if (!t) return;
+  const r = rectFor(idx), p = placement(t, r.w, r.h);
+  const ex = p.dw - r.w, ey = p.dh - r.h;
+  if (ex > 0.5) t.nx = clamp(t.nx - dx*2/ex, -1, 1);
+  if (ey > 0.5) t.ny = clamp(t.ny - dy*2/ey, -1, 1);
+}
+function setZoom(idx, z){
+  const t = target(idx); if (!t) return;
+  t.zoom = clamp(z, 1, 4);
+  draw(); syncZoomUI();
+}
+const ptrs = new Map(); let G = null, suppressClick = false;
+pv.addEventListener('pointerdown', e => {
+  if (recording) return;
+  if (playing) stopPlay();
+  try { pv.setPointerCapture(e.pointerId); } catch (_) {}
+  const p = getPos(e); ptrs.set(e.pointerId, p);
+  if (ptrs.size === 1){
+    G = {type:'pan', idx:hit(p.x, p.y), sx:p.x, sy:p.y, lx:p.x, ly:p.y, moved:false};
+  } else if (ptrs.size === 2 && G && G.idx !== -1 && target(G.idx)){
+    const [a, b] = [...ptrs.values()];
+    G = {type:'pinch', idx:G.idx, d0:Math.hypot(a.x-b.x, a.y-b.y) || 1, z0:target(G.idx).zoom, moved:true};
+  }
+});
+pv.addEventListener('pointermove', e => {
+  if (!ptrs.has(e.pointerId) || !G) return;
+  const p = getPos(e); ptrs.set(e.pointerId, p);
+  if (G.type === 'pan'){
+    if (!G.moved && Math.hypot(p.x - G.sx, p.y - G.sy) > 6 * DPR) G.moved = true;
+    if (G.moved && G.idx !== -1 && target(G.idx)){ panBy(G.idx, p.x - G.lx, p.y - G.ly); draw(); }
+    G.lx = p.x; G.ly = p.y;
+  } else if (G.type === 'pinch' && ptrs.size >= 2){
+    const [a, b] = [...ptrs.values()];
+    setZoom(G.idx, G.z0 * Math.hypot(a.x-b.x, a.y-b.y) / G.d0);
+  }
+});
+function endPtr(e, cancel){
+  if (!ptrs.has(e.pointerId)) return;
+  ptrs.delete(e.pointerId);
+  if (ptrs.size === 0){ suppressClick = cancel || !!(G && G.moved); G = null; }
+  else if (G && G.type === 'pinch'){
+    const p = [...ptrs.values()][0];
+    G = {type:'pan', idx:G.idx, sx:p.x, sy:p.y, lx:p.x, ly:p.y, moved:true};
+  }
+}
+pv.addEventListener('pointerup', e => endPtr(e, false));
+pv.addEventListener('pointercancel', e => endPtr(e, true));
+pv.addEventListener('click', e => {
+  if (suppressClick){ suppressClick = false; return; }
+  if (recording) return;
+  const p = getPos(e); onTap(hit(p.x, p.y));
+});
+pv.addEventListener('wheel', e => {
+  const p = getPos(e), idx = hit(p.x, p.y), t = target(idx);
+  if (!t) return;
+  e.preventDefault();
+  setZoom(idx, t.zoom * Math.exp(-e.deltaY * 0.0015));
+}, {passive:false});
+pv.addEventListener('gesturestart', e => e.preventDefault());
+
+function onTap(idx){
+  if (S.mode === 'split'){
+    if (!S.split.cell){ pendingIdx = 'split'; fileOne.click(); }
+    return;
+  }
+  if (idx < 0){ S.sel = -1; syncUI(); draw(); return; }
+  if (!S.cells[idx]){ pendingIdx = idx; fileOne.click(); return; }
+  S.sel = idx;
+  if (S.open || wide()){ S.tab = 'photo'; applyTab(); }
+  syncUI(); draw();
+}
+
+/* ---------- 파일 선택 ---------- */
+$('#addBtn').addEventListener('click', () => {
+  const n = S.grid*S.grid;
+  if (!S.cells.slice(0, n).some(c => !c)){ toast('빈 칸이 없습니다. 칸을 비우거나 배열을 바꿔 주세요.'); return; }
+  fileMulti.click();
+});
+fileMulti.addEventListener('change', async () => {
+  const files = [...fileMulti.files]; fileMulti.value = '';
+  if (!files.length) return;
+  const n = S.grid*S.grid, empties = [];
+  for (let i = 0; i < n; i++) if (!S.cells[i]) empties.push(i);
+  const use = files.slice(0, empties.length);
+  stopPlay();
+  let err = null;
+  for (let k = 0; k < use.length; k++){
+    showBusy(`사진 불러오는 중 (${k+1}/${use.length})`, k / use.length);
+    try { S.cells[empties[k]] = await loadImage(use[k], MAX_COLLAGE); draw(); }
+    catch (e) { err = e; }
+  }
+  hideBusy(); syncUI(); draw();
+  if (err) toast(loadErrorMsg(err), 6000);
+  else if (files.length > empties.length) toast(`빈 칸이 부족해 ${files.length - empties.length}장은 넣지 않았습니다.`);
+});
+fileOne.addEventListener('change', async () => {
+  const f = fileOne.files[0]; fileOne.value = '';
+  if (!f || pendingIdx === -1) return;
+  stopPlay(); showBusy('사진 불러오는 중');
+  try {
+    if (pendingIdx === 'split'){
+      const c = await loadImage(f, MAX_SPLIT); freeCell(S.split.cell); S.split.cell = c;
+    } else {
+      const c = await loadImage(f, MAX_COLLAGE); freeCell(S.cells[pendingIdx]); S.cells[pendingIdx] = c; S.sel = pendingIdx;
+    }
+  } catch (e) { toast(loadErrorMsg(e), 6000); }
+  pendingIdx = -1; hideBusy(); syncUI(); draw();
+});
+$('#splitAdd').addEventListener('click', () => { pendingIdx = 'split'; fileOne.click(); });
+
+$('#clearBtn').addEventListener('click', () => {
+  if (!S.cells.some(Boolean)) return;
+  if (!confirm('넣은 사진을 모두 비울까요?')) return;
+  stopPlay(); S.cells.forEach(freeCell); S.cells = Array(9).fill(null); S.sel = -1; syncUI(); draw();
+});
+$('#cellZoom').addEventListener('input', e => setZoom(S.sel, e.target.value / 100));
+$('#splitZoom').addEventListener('input', e => setZoom(0, e.target.value / 100));
+$('#cellReplace').addEventListener('click', () => { if (S.sel >= 0){ pendingIdx = S.sel; fileOne.click(); } });
+$('#cellReset').addEventListener('click', () => { const c = S.cells[S.sel]; if (c){ c.zoom = 1; c.nx = 0; c.ny = 0; changed(); } });
+$('#cellRemove').addEventListener('click', () => { if (S.sel >= 0){ freeCell(S.cells[S.sel]); S.cells[S.sel] = null; S.sel = -1; changed(); } });
+function swap(d){
+  const i = S.sel, j = i + d, n = S.grid*S.grid;
+  if (i < 0 || j < 0 || j >= n) return;
+  [S.cells[i], S.cells[j]] = [S.cells[j], S.cells[i]]; S.sel = j; changed();
+}
+$('#cellPrev').addEventListener('click', () => swap(-1));
+$('#cellNext').addEventListener('click', () => swap(1));
+
+/* ---------- 도구 막대 ---------- */
+function applyTab(){
+  const open = S.open || wide();
+  $('#panel').classList.toggle('closed', !open);
+  document.querySelectorAll('#dock button').forEach(b => b.setAttribute('aria-selected', String(open && b.dataset.tab === S.tab)));
+  document.querySelectorAll('.panel .sec').forEach(s => { s.hidden = s.dataset.tab !== S.tab; });
+}
+$('#dock').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (!wide() && S.open && S.tab === b.dataset.tab) S.open = false;
+  else { S.tab = b.dataset.tab; S.open = true; }
+  applyTab();
+});
+window.addEventListener('resize', applyTab);
+
+/* ---------- 컨트롤 구성 ---------- */
+const SYNCS = [];
+function field(parent, {id, label, min, max, step, get, set, fmt}){
+  const w = document.createElement('div'); w.className = 'field';
+  w.innerHTML = `<label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}"><output></output>`;
+  parent.appendChild(w);
+  const inp = w.querySelector('input'), out = w.querySelector('output');
+  inp.addEventListener('input', () => { set(parseFloat(inp.value)); out.textContent = fmt(get()); changed(); });
+  SYNCS.push(() => { inp.value = get(); out.textContent = fmt(get()); });
+}
+const deco = $('#decoFields');
+field(deco, {id:'fGap', label:'칸 간격', min:0, max:60, step:1, get:() => S.gap, set:v => S.gap = v, fmt:v => v});
+field(deco, {id:'fMargin', label:'바깥 여백', min:0, max:160, step:1, get:() => S.margin, set:v => S.margin = v, fmt:v => v});
+field(deco, {id:'fBottom', label:'아래 여백', min:0, max:400, step:2, get:() => S.bottom, set:v => S.bottom = v, fmt:v => v});
+field(deco, {id:'fRadius', label:'모서리', min:0, max:80, step:1, get:() => S.radius, set:v => S.radius = v, fmt:v => v});
+const fxf = $('#fxFields');
+field(fxf, {id:'fInt', label:'등장 간격', min:0.15, max:1.2, step:0.05, get:() => S.interval, set:v => S.interval = v, fmt:v => v.toFixed(2) + '초'});
+field(fxf, {id:'fHold', label:'마지막 정지', min:0.5, max:5, step:0.5, get:() => S.hold, set:v => S.hold = v, fmt:v => v.toFixed(1) + '초'});
+
+function seg(id, get, set){
+  const el = $(id);
+  el.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    set(b.dataset.v); changed();
+  });
+  SYNCS.push(() => el.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === String(get())))));
+}
+seg('#gridSeg', () => S.grid, v => {
+  const n = +v, hidden = S.cells.slice(n*n).filter(Boolean).length;
+  S.grid = n; if (S.sel >= n*n) S.sel = -1;
+  if (hidden) toast(`넣어둔 사진 ${hidden}장은 지금 배열에서 숨겨집니다. 다시 3 × 3으로 바꾸면 보입니다.`);
+});
+seg('#fxSeg', () => S.fx, v => S.fx = v);
+seg('#orderSeg', () => S.order, v => { if (v === 'random') S.seed = (Math.random() * 1e9) | 0; S.order = v; });
+seg('#rowSeg', () => S.split.rows, v => { S.split.rows = +v; sizePreview(); });
+
+function buildPresets(){
+  const mk = (p) => {
+    const b = document.createElement('button'); b.className = 'preset'; b.dataset.id = p.id;
+    b.innerHTML = `<b>${p.name}</b><span>${p.w} × ${p.h}</span>`;
+    b.addEventListener('click', () => { S.preset = p.id; changed(); sizePreview(); });
+    (p.group === 'insta' ? $('#presetInsta') : $('#presetPrint')).appendChild(b);
+  };
+  PRESETS.forEach(mk);
+  SYNCS.push(() => {
+    document.querySelectorAll('.preset').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === S.preset)));
+    $('#presetHelp').textContent = PRESET_HELP[S.preset];
+  });
+}
+buildPresets();
+
+function buildSwatches(){
+  const box = $('#swatches');
+  SWATCHES.forEach(c => {
+    const b = document.createElement('button'); b.className = 'sw'; b.style.background = c; b.dataset.c = c;
+    b.setAttribute('aria-label', '배경색 ' + c);
+    b.addEventListener('click', () => { S.bg = c; changed(); });
+    box.appendChild(b);
+  });
+  const ci = document.createElement('input'); ci.type = 'color'; ci.setAttribute('aria-label', '배경색 직접 고르기');
+  ci.addEventListener('input', () => { S.bg = ci.value.toUpperCase(); changed(); });
+  box.appendChild(ci);
+  SYNCS.push(() => {
+    box.querySelectorAll('.sw').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.c === S.bg)));
+    ci.value = S.bg.length === 7 ? S.bg : '#ffffff';
+  });
+}
+buildSwatches();
+$('#caption').addEventListener('input', e => { S.caption = e.target.value; changed(); });
+
+document.querySelectorAll('.modeseg button').forEach(b => b.addEventListener('click', () => {
+  stopPlay(); S.mode = b.dataset.mode; document.body.dataset.mode = S.mode;
+  document.querySelectorAll('.modeseg button').forEach(x => x.setAttribute('aria-selected', String(x === b)));
+  S.tab = TAB_DEFAULT[S.mode]; applyTab();
+  syncUI(); sizePreview();
+}));
+
+function syncZoomUI(){
+  const c = S.cells[S.sel];
+  if (c){ $('#cellZoom').value = Math.round(c.zoom*100); $('#cellZoomOut').textContent = Math.round(c.zoom*100) + '%'; }
+  const sc = S.split.cell;
+  $('#splitZoom').disabled = !sc;
+  $('#splitZoom').value = sc ? Math.round(sc.zoom*100) : 100;
+  $('#splitZoomOut').textContent = (sc ? Math.round(sc.zoom*100) : 100) + '%';
+}
+function syncUI(){
+  SYNCS.forEach(f => f());
+  const n = S.grid*S.grid, c = S.cells[S.sel];
+  const on = S.mode === 'collage' && S.sel >= 0 && S.sel < n && !!c;
+  $('#cellBox').classList.toggle('on', on);
+  if (on){
+    $('#cellTitle').textContent = `선택한 칸: ${S.sel + 1}번`;
+    $('#cellPrev').disabled = S.sel === 0;
+    $('#cellNext').disabled = S.sel === n - 1;
+  }
+  syncZoomUI();
+  const k = filled();
+  $('#playBtn').disabled = $('#videoBtn').disabled = k === 0;
+  $('#saveBtn').disabled = S.mode === 'split' ? !S.split.cell : k === 0;
+  const vd = videoDims(), mime = pickMime();
+  const fmt = !mime ? '이 브라우저는 동영상 만들기를 지원하지 않습니다' : mime.includes('mp4') ? 'MP4로 저장' : 'WebM으로 저장(아이폰 사진 앱 저장 불가)';
+  $('#videoHelp').textContent = k
+    ? `약 ${totalTime(k).toFixed(1)}초, ${vd.W} × ${vd.H} px, ${fmt}. 동영상은 실제 재생 시간만큼 녹화되니 그동안 화면을 그대로 두세요. 배경음악은 인스타그램에서 넣으면 됩니다.`
+    : '사진을 넣으면 효과를 미리 볼 수 있습니다.';
+  updateAmbient();
+}
+function changed(){ stopPlay(); syncUI(); draw(); }
+
+/* ---------- 움직이는 효과 ---------- */
+function animOrder(){
+  const n = S.grid, idx = [];
+  for (let i = 0; i < n*n; i++) if (S.cells[i]) idx.push(i);
+  if (S.order === 'center'){
+    const c = (n - 1) / 2, d = i => Math.hypot(i % n - c, Math.floor(i / n) - c);
+    idx.sort((a, b) => d(a) - d(b) || a - b);
+  } else if (S.order === 'random'){
+    const rnd = mulberry32(S.seed);
+    for (let i = idx.length - 1; i > 0; i--){ const j = Math.floor(rnd() * (i + 1)); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+  }
+  return idx;
+}
+function totalTime(m){ return START + Math.max(0, m - 1) * S.interval + DUR[S.fx] + 0.5 + S.hold; }
+function buildCache(W, H){
+  const L = layout(W, H);
+  const items = L.cells.map((r, i) => {
+    const cell = S.cells[i]; if (!cell) return null;
+    const cw = Math.max(1, Math.round(r.w)), ch = Math.max(1, Math.round(r.h));
+    const c = document.createElement('canvas'); c.width = cw; c.height = ch;
+    const x = c.getContext('2d');
+    roundPath(x, 0, 0, cw, ch, L.rad); x.clip();
+    const p = placement(cell, cw, ch); x.imageSmoothingQuality = 'high';
+    x.drawImage(cell.img, p.dx, p.dy, p.dw, p.dh);
+    return {r, c};
+  });
+  return {W, H, L, items, order:animOrder()};
+}
+function freeCache(C){ if (C) C.items.forEach(it => { if (it){ it.c.width = 0; it.c.height = 0; } }); }
+function star(ctx, x, y, R, rot){
+  const ri = R * 0.2; ctx.beginPath();
+  for (let i = 0; i < 8; i++){
+    const a = rot + i*Math.PI/4 - Math.PI/2, rr = i % 2 === 0 ? R : ri;
+    const px = x + Math.cos(a)*rr, py = y + Math.sin(a)*rr;
+    i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+  }
+  ctx.closePath(); ctx.fill();
+}
+const STAR_POS = [[-0.36,-0.34,0.17],[0.38,-0.06,0.12],[-0.08,0.38,0.09]];
+function drawSparkles(ctx, r, idx, p){
+  const rnd = mulberry32(idx * 977 + 13), base = Math.min(r.w, r.h);
+  STAR_POS.forEach(([fx, fy, fs], j) => {
+    const q = (p - 0.08 - j*0.13) / 0.55;
+    const jx = (rnd() - 0.5) * 0.12, jy = (rnd() - 0.5) * 0.12;
+    if (q <= 0 || q >= 1) return;
+    const k = Math.sin(Math.PI * q), R = base * fs * k;
+    const x = r.x + r.w/2 + (fx + jx) * r.w, y = r.y + r.h/2 + (fy + jy) * r.h;
+    ctx.save();
+    const g = ctx.createRadialGradient(x, y, 0, x, y, R * 1.4);
+    g.addColorStop(0, `rgba(255,222,130,${0.55*k})`); g.addColorStop(1, 'rgba(255,222,130,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, R * 1.4, 0, Math.PI*2); ctx.fill();
+    ctx.globalAlpha = k; ctx.fillStyle = '#FFFFFF';
+    star(ctx, x, y, R, q * Math.PI * 0.5);
+    ctx.restore();
+  });
+}
+function drawFrame(ctx, C, t){
+  const {W, H, L} = C, D = DUR[S.fx];
+  ctx.setTransform(1,0,0,1,0,0); ctx.globalAlpha = 1;
+  ctx.fillStyle = S.bg; ctx.fillRect(0, 0, W, H);
+  let flash = 0;
+  C.order.forEach((idx, k) => {
+    const it = C.items[idx]; if (!it) return;
+    const st = START + k * S.interval, p = (t - st) / D;
+    if (p <= 0) return;
+    const q = Math.min(p, 1), {r, c} = it;
+    let a = 1, s = 1, fa = 0;
+    if (S.fx === 'sparkle'){
+      const e = clamp(q / 0.45, 0, 1);
+      a = easeOutCubic(e); s = 0.9 + 0.1 * easeOutBack(e);
+      fa = (q < 0.12 ? q / 0.12 : Math.max(0, 1 - (q - 0.12) / 0.3)) * 0.75;
+    } else if (S.fx === 'fade'){
+      a = easeInOut(q);
+    } else if (S.fx === 'pop'){
+      s = Math.max(0.001, easeOutBack(q)); a = clamp(q * 3, 0, 1);
+    } else if (S.fx === 'shutter'){
+      const lt = t - st; if (lt < 0.3) flash = Math.max(flash, (1 - lt / 0.3) * 0.7);
+    }
+    ctx.save();
+    ctx.globalAlpha = a;
+    ctx.translate(r.x + r.w/2, r.y + r.h/2); ctx.scale(s, s);
+    ctx.drawImage(c, -r.w/2, -r.h/2, r.w, r.h);
+    if (fa > 0){
+      ctx.globalAlpha = fa; ctx.fillStyle = '#FFFFFF';
+      roundPath(ctx, -r.w/2, -r.h/2, r.w, r.h, L.rad); ctx.fill();
+    }
+    ctx.restore();
+    if (S.fx === 'sparkle' && p < 1.1) drawSparkles(ctx, r, idx, p);
+  });
+  const m = C.order.length, capStart = START + Math.max(0, m - 1) * S.interval + D * 0.6;
+  drawCaption(ctx, L, W, clamp((t - capStart) / 0.5, 0, 1));
+  if (flash > 0){ ctx.globalAlpha = flash; ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
+}
+function startPlay(){
+  if (!filled()){ toast('먼저 사진을 넣어 주세요.'); return; }
+  stopPlay();
+  playCache = buildCache(PW, PH); playing = true;
+  $('#playBtn').textContent = '정지';
+  const T = totalTime(playCache.order.length), t0 = performance.now();
+  const step = now => {
+    if (!playing) return;
+    const t = (now - t0) / 1000;
+    drawFrame(pctx, playCache, Math.min(t, T));
+    if (t < T) playRAF = requestAnimationFrame(step);
+    else stopPlay();
+  };
+  playRAF = requestAnimationFrame(step);
+}
+function stopPlay(){
+  if (!playing) return;
+  playing = false; cancelAnimationFrame(playRAF);
+  freeCache(playCache); playCache = null;
+  $('#playBtn').textContent = '미리보기 재생';
+  draw();
+}
+$('#playBtn').addEventListener('click', () => playing ? stopPlay() : startPlay());
+
+/* ---------- 동영상 ---------- */
+function pickMime(){
+  if (!window.MediaRecorder || !rec.captureStream) return null;
+  const list = ['video/mp4;codecs=avc1.640028', 'video/mp4;codecs=avc1.4d002a', 'video/mp4;codecs=avc1', 'video/mp4',
+                'video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm'];
+  for (const m of list){ try { if (MediaRecorder.isTypeSupported(m)) return m; } catch (_) {} }
+  return null;
+}
+function videoDims(){
+  const p = PB[S.preset], k = 1080 / p.w;
+  return {W:Math.round(p.w*k/2)*2, H:Math.round(p.h*k/2)*2};
+}
+async function makeVideo(){
+  if (!filled()){ toast('먼저 사진을 넣어 주세요.'); return; }
+  const mime = pickMime();
+  if (!mime){ toast('이 브라우저는 동영상 만들기를 지원하지 않습니다. 최신 크롬이나 아이폰 사파리를 이용해 주세요.', 5000); return; }
+  stopPlay();
+  const {W, H} = videoDims();
+  rec.width = W; rec.height = H;
+  const rctx = rec.getContext('2d');
+  const C = buildCache(W, H), T = totalTime(C.order.length);
+  recording = true; document.body.classList.add('locked');
+  pv.style.display = 'none'; rec.style.display = 'block';
+  drawFrame(rctx, C, 0);
+  const stream = rec.captureStream(30), chunks = [];
+  let mr;
+  try { mr = new MediaRecorder(stream, {mimeType:mime, videoBitsPerSecond:12000000}); }
+  catch (e) { try { mr = new MediaRecorder(stream); } catch (e2) { mr = null; } }
+  const cleanup = () => {
+    stream.getTracks().forEach(tr => tr.stop()); freeCache(C);
+    rec.style.display = 'none'; pv.style.display = 'block';
+    recording = false; document.body.classList.remove('locked'); draw();
+  };
+  if (!mr){ cleanup(); toast('동영상 녹화를 시작할 수 없습니다.'); return; }
+  mr.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  const stopped = new Promise(res => mr.onstop = res);
+  mr.start(200);
+  const t0 = performance.now();
+  await new Promise(res => {
+    const step = now => {
+      const t = (now - t0) / 1000;
+      drawFrame(rctx, C, Math.min(t, T));
+      $('#meta').textContent = `녹화 중 ${Math.min(t, T).toFixed(1)} / ${T.toFixed(1)}초. 화면을 그대로 두세요.`;
+      if (t < T + 0.15) requestAnimationFrame(step); else res();
+    };
+    requestAnimationFrame(step);
+  });
+  mr.stop(); await stopped;
+  cleanup();
+  const type = (mr.mimeType || mime).split(';')[0] || 'video/mp4';
+  const ext = type.includes('mp4') ? 'mp4' : 'webm';
+  const blob = new Blob(chunks, {type});
+  if (!blob.size){ toast('녹화된 내용이 없습니다. 다시 시도해 주세요.'); return; }
+  const file = new File([blob], `grid-${S.grid}x${S.grid}-${S.fx}-${stamp()}.${ext}`, {type});
+  const notes = [];
+  if (ext === 'webm') notes.push('WebM 형식으로 만들어졌습니다. 아이폰 사진 앱과 인스타그램에서는 열리지 않을 수 있으니, 아이폰 사파리에서 다시 만들어 주세요.');
+  else if (isIOS) notes.push("공유 메뉴에서 '동영상 저장'을 누르면 사진 앱에 들어갑니다.");
+  notes.push('배경음악은 인스타그램 앱에서 넣으세요.');
+  openSheet({title:'동영상이 준비됐습니다', note:notes.join(' '), files:[file], view:'video'});
+}
+$('#videoBtn').addEventListener('click', makeVideo);
+
+/* ---------- 이미지 저장 ---------- */
+async function saveCollage(){
+  if (!filled()){ toast('먼저 사진을 넣어 주세요.'); return; }
+  stopPlay();
+  const p = PB[S.preset];
+  showBusy('이미지 만드는 중'); await nextFrame();
+  try {
+    const c = document.createElement('canvas'); c.width = p.w; c.height = p.h;
+    drawCollage(c.getContext('2d'), p.w, p.h, false);
+    let blob = await toBlob(c, 'image/jpeg', 0.95);
+    c.width = c.height = 0;
+    if (p.print) blob = await setJpegDpi(blob, 300);
+    const file = new File([blob], `grid-${S.grid}x${S.grid}-${p.id}-${stamp()}.jpg`, {type:'image/jpeg'});
+    const notes = [], empty = S.grid*S.grid - filled();
+    if (empty) notes.push(`빈 칸 ${empty}개는 빈 채로 저장됩니다.`);
+    if (p.print) notes.push(`인화를 주문할 때 사진 크기를 ${p.name}로 선택하세요.`);
+    if (isIOS) notes.push("공유 메뉴에서 '이미지 저장'을 누르면 사진 앱에 들어갑니다.");
+    hideBusy();
+    openSheet({title:'이미지가 준비됐습니다', note:notes.join(' '), files:[file], view:'single'});
+  } catch (e) { hideBusy(); toast('이미지를 만들지 못했습니다. 다시 시도해 주세요.'); }
+}
+async function saveSplit(){
+  const sc = S.split.cell;
+  if (!sc){ toast('먼저 사진을 선택해 주세요.'); return; }
+  const rows = S.split.rows, N = rows * 3, TW = 3240, TH = 1440 * rows;
+  const c = document.createElement('canvas'); c.width = 1080; c.height = 1440;
+  const x = c.getContext('2d'); x.imageSmoothingQuality = 'high';
+  const p = placement(sc, TW, TH), out = [];
+  try {
+    for (let k = 0; k < N; k++){
+      showBusy(`조각 만드는 중 (${k+1}/${N})`, k / N); await nextFrame();
+      const r = Math.floor(k / 3), cc = k % 3, post = N - k;
+      x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, 1080, 1440);
+      x.drawImage(sc.img, p.dx - cc*1080, p.dy - r*1440, p.dw, p.dh);
+      const blob = await toBlob(c, 'image/jpeg', 0.95);
+      out.push({k, post, file:new File([blob], `upload-${String(post).padStart(2,'0')}.jpg`, {type:'image/jpeg'})});
+    }
+  } catch (e) { hideBusy(); toast('조각을 만들지 못했습니다. 다시 시도해 주세요.'); return; }
+  c.width = c.height = 0; hideBusy();
+  const files = out.slice().sort((a, b) => a.post - b.post).map(o => o.file);
+  const grid = out.map(o => ({file:o.file, label:`${o.post}번째로 올리기`}));
+  const note = isIOS
+    ? "공유 메뉴에서 '파일에 저장'을 고르면 순서 번호가 붙은 파일명(upload-01, 02...)으로 저장됩니다. '이미지 저장'을 고르면 사진 앱에 들어가지만 순서가 섞일 수 있으니 아래 번호를 참고하세요."
+    : '여러 장은 ZIP 파일 하나로 받습니다. 파일명 번호(upload-01부터) 순서대로 올리세요.';
+  openSheet({title:`조각 ${N}장이 준비됐습니다`, note, files, view:'grid', grid});
+}
+$('#saveBtn').addEventListener('click', () => S.mode === 'split' ? saveSplit() : saveCollage());
+
+/* ---------- 저장 시트 ---------- */
+let sheetFiles = [], sheetURLs = [];
+function canShareFiles(files){
+  try { return !!(navigator.canShare && navigator.share && navigator.canShare({files})); } catch (_) { return false; }
+}
+function openSheet({title, note, files, view, grid}){
+  sheetFiles = files;
+  $('#sheetTitle').textContent = title;
+  $('#sheetNote').textContent = note || '';
+  const body = $('#sheetBody'); body.innerHTML = '';
+  const url = f => { const u = URL.createObjectURL(f); sheetURLs.push(u); return u; };
+  if (view === 'video'){
+    const v = document.createElement('video');
+    v.src = url(files[0]); v.controls = true; v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true;
+    v.setAttribute('playsinline', '');
+    body.appendChild(v);
+  } else if (view === 'grid'){
+    const g = document.createElement('div'); g.className = 'thumbs';
+    grid.forEach(o => {
+      const f = document.createElement('figure');
+      f.innerHTML = `<img alt="${o.label}"><figcaption>${o.label}</figcaption>`;
+      f.querySelector('img').src = url(o.file);
+      g.appendChild(f);
+    });
+    body.appendChild(g);
+  } else {
+    const d = document.createElement('div'); d.className = 'single';
+    const im = document.createElement('img'); im.alt = '저장할 이미지'; im.src = url(files[0]);
+    d.appendChild(im); body.appendChild(d);
+  }
+  const share = $('#sheetShare'), dl = $('#sheetDownload');
+  const canShare = canShareFiles(files);
+  share.style.display = canShare ? '' : 'none';
+  const sharePrimary = canShare && (isIOS || matchMedia('(pointer:coarse)').matches);
+  share.className = 'btn' + (sharePrimary ? ' primary' : '');
+  dl.className = 'btn' + (sharePrimary ? '' : ' primary');
+  dl.textContent = files.length > 1 ? 'ZIP으로 다운로드' : '다운로드';
+  $('#sheetBg').classList.add('on');
+}
+function closeSheet(){
+  $('#sheetBg').classList.remove('on');
+  $('#sheetBody').innerHTML = '';
+  sheetURLs.forEach(u => URL.revokeObjectURL(u)); sheetURLs = []; sheetFiles = [];
+}
+$('#sheetClose').addEventListener('click', closeSheet);
+$('#sheetBg').addEventListener('click', e => { if (e.target.id === 'sheetBg') closeSheet(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#sheetBg').classList.contains('on')) closeSheet(); });
+$('#sheetShare').addEventListener('click', () => {
+  navigator.share({files:sheetFiles}).catch(err => {
+    if (err && err.name !== 'AbortError') toast('공유 메뉴를 열 수 없습니다. 다운로드를 이용해 주세요.');
+  });
+});
+function dlFile(file){
+  const a = document.createElement('a'), u = URL.createObjectURL(file);
+  a.href = u; a.download = file.name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(u), 5000);
+}
+function loadJSZip(){
+  if (window.JSZip) return Promise.resolve();
+  return new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+    s.onload = res; s.onerror = rej; document.head.appendChild(s);
+  });
+}
+$('#sheetDownload').addEventListener('click', async () => {
+  const files = sheetFiles.slice();
+  if (files.length === 1){ dlFile(files[0]); return; }
+  try {
+    await loadJSZip();
+    const zip = new JSZip(); files.forEach(f => zip.file(f.name, f));
+    const blob = await zip.generateAsync({type:'blob'});
+    dlFile(new File([blob], `instagram-split-${stamp()}.zip`, {type:'application/zip'}));
+  } catch (e) {
+    toast('ZIP을 만들 수 없어 한 장씩 내려받습니다.');
+    for (const f of files){ dlFile(f); await sleep(400); }
+  }
+});
+
+/* ---------- 시작 ---------- */
+applyTab();
+syncUI();
+sizePreview();
+})();
+</script>
+</body>
+</html>
