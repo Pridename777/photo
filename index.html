@@ -193,6 +193,20 @@ body.locked .top,body.locked .bottom{pointer-events:none;opacity:.5}
 .sheet .row{margin-top:16px}
 .picker{position:fixed;left:-9999px;top:0;opacity:0;width:1px;height:1px}
 
+
+/* ---------- 필터 · 렌즈 · 필름 ---------- */
+.dock{gap:0}
+.dock button{padding:8px 1px 7px;font-size:11px}
+.fchip{flex:none;width:76px;padding:0;border:0;background:none;text-align:center;color:var(--ink2);font-size:11.5px;font-weight:600;scroll-snap-align:start}
+.fchip canvas{display:block;width:76px;height:95px;border-radius:14px;border:2px solid transparent;background:rgba(255,255,255,.08);transition:border-color .15s}
+.fchip span{display:block;margin-top:5px}
+.fchip[aria-pressed="true"]{color:#fff}
+.fchip[aria-pressed="true"] canvas{border-color:#fff}
+.scopebar .seg{margin-bottom:8px}
+.scopeinfo{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink2)}
+.scopebar .btn{margin-top:8px;height:38px}
+#panel[data-fxlock="1"] .needfx{opacity:.4;pointer-events:none}
+.sec .row.tight{margin-top:10px}
 /* ---------- 넓은 화면 ---------- */
 @media (min-width:861px){
   .app{grid-template-columns:minmax(0,1fr) 392px;grid-template-rows:auto minmax(0,1fr)}
@@ -264,7 +278,7 @@ body.locked .top,body.locked .bottom{pointer-events:none;opacity:.5}
               <li>공유 버튼을 누릅니다.</li>
               <li>'홈 화면에 추가'를 누른 뒤 '추가'를 누릅니다.</li>
             </ol>
-            사진은 기기 안에서만 처리되며 어디에도 올라가지 않습니다. 그리드 스튜디오 v1.1
+            사진은 기기 안에서만 처리되며 어디에도 올라가지 않습니다. 그리드 스튜디오 v1.5.1
           </details>
         </div>
 
@@ -285,7 +299,8 @@ body.locked .top,body.locked .bottom{pointer-events:none;opacity:.5}
         </div>
 
         <!-- 콜라주: 꾸미기 -->
-        <div class="sec only-collage" data-tab="style">
+        <div class="sec only-collage" data-tab="layout">
+          <h2>꾸미기</h2>
           <div id="decoFields"></div>
           <div class="sub">배경색</div>
           <div class="swatches" id="swatches"></div>
@@ -304,12 +319,82 @@ body.locked .top,body.locked .bottom{pointer-events:none;opacity:.5}
           <div class="seg" id="orderSeg">
             <button data-v="seq">순서대로</button><button data-v="center">가운데부터</button><button data-v="random">무작위</button>
           </div>
+          <div class="sub">천천히 확대</div>
+          <div class="seg" id="kbSeg"><button data-v="off">끔</button><button data-v="on">켬</button></div>
+          <div class="sub">필름 깜빡임</div>
+          <div class="seg" id="flSeg"><button data-v="off">끔</button><button data-v="on">켬</button></div>
+          <p class="help">천천히 확대는 사진이 나온 뒤 끝까지 조금씩 커집니다. 프레임이 있는 칸에는 적용되지 않습니다.</p>
           <div id="fxFields" style="margin-top:8px"></div>
           <div class="row" style="margin-top:10px">
             <button class="btn" id="playBtn">미리보기 재생</button>
             <button class="btn strong" id="videoBtn">동영상 만들기</button>
           </div>
           <p class="help" id="videoHelp"></p>
+        </div>
+
+        <!-- 필터 -->
+        <div class="sec only-collage scopebar" data-tab="filter">
+          <div class="seg"><button data-v="all">전체</button><button data-v="cell">선택한 칸</button></div>
+          <p class="scopeinfo"></p>
+          <button class="btn scopeReset" hidden>전체 설정으로 되돌리기</button>
+        </div>
+        <div class="sec needfx" data-tab="filter">
+          <h2>필터</h2>
+          <div class="chips" id="presetFx"></div>
+          <div id="fxStrength"></div>
+        </div>
+        <div class="sec needfx" data-tab="filter">
+          <h2>조정</h2>
+          <div id="adjFields"></div>
+          <div class="row tight"><button class="btn" id="adjReset">조정 초기화</button></div>
+        </div>
+
+        <!-- 렌즈 -->
+        <div class="sec only-collage scopebar" data-tab="lens">
+          <div class="seg"><button data-v="all">전체</button><button data-v="cell">선택한 칸</button></div>
+          <p class="scopeinfo"></p>
+          <button class="btn scopeReset" hidden>전체 설정으로 되돌리기</button>
+        </div>
+        <div class="sec needfx" data-tab="lens">
+          <h2>초점 효과</h2>
+          <div class="seg" id="lensSeg">
+            <button data-v="none">없음</button><button data-v="tilt">틸트시프트</button><button data-v="radial">방사형</button>
+          </div>
+          <div id="tiltFields" style="margin-top:8px" hidden></div>
+          <div id="radFields" style="margin-top:8px" hidden></div>
+          <p class="help" id="lensHelp"></p>
+        </div>
+        <div class="sec needfx" data-tab="lens">
+          <h2>분위기</h2>
+          <div id="moodFields"></div>
+        </div>
+
+        <!-- 필름 -->
+        <div class="sec only-collage scopebar" data-tab="film">
+          <div class="seg"><button data-v="all">전체</button><button data-v="cell">선택한 칸</button></div>
+          <p class="scopeinfo"></p>
+          <button class="btn scopeReset" hidden>전체 설정으로 되돌리기</button>
+        </div>
+        <div class="sec needfx" data-tab="film">
+          <h2>필름 질감</h2>
+          <div id="grainFields"></div>
+          <div class="sub">빛샘</div>
+          <div class="seg" id="leakSeg">
+            <button data-v="none">없음</button><button data-v="warm">따뜻</button><button data-v="yellow">노랑</button><button data-v="pink">핑크</button>
+          </div>
+          <div id="leakFields" style="margin-top:6px"></div>
+        </div>
+        <div class="sec needfx" data-tab="film">
+          <h2>날짜 스탬프</h2>
+          <div class="seg" id="dateSeg"><button data-v="off">끔</button><button data-v="on">켬</button></div>
+          <input class="text" id="dateText" type="text" maxlength="12" style="margin-top:8px" aria-label="날짜 문구">
+        </div>
+        <div class="sec needfx only-collage" data-tab="film">
+          <h2>프레임</h2>
+          <div class="seg" id="frameSeg">
+            <button data-v="none">없음</button><button data-v="polaroid">폴라로이드</button><button data-v="film">필름 스트립</button>
+          </div>
+          <p class="help">칸마다 테두리가 들어갑니다. 프레임이 있는 칸은 사진 영역이 그만큼 줄어듭니다.</p>
         </div>
 
         <!-- 피드 분할 -->
@@ -334,19 +419,25 @@ body.locked .top,body.locked .bottom{pointer-events:none;opacity:.5}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l4.5-4.5 3.5 3.5 3-3 4.5 4.5"/></svg>사진
       </button>
       <button class="only-collage" role="tab" data-tab="layout" aria-selected="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>배열
-      </button>
-      <button class="only-collage" role="tab" data-tab="style" aria-selected="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>꾸미기
-      </button>
-      <button class="only-collage" role="tab" data-tab="motion" aria-selected="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3.5c.6 4.2 2.3 5.9 6.5 6.5-4.2.6-5.9 2.3-6.5 6.5-.6-4.2-2.3-5.9-6.5-6.5 4.2-.6 5.9-2.3 6.5-6.5z"/><path d="M18.5 15.5v4M16.5 17.5h4"/></svg>효과
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>구성
       </button>
       <button class="only-split" role="tab" data-tab="s-photo" aria-selected="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l4.5-4.5 3.5 3.5 3-3 4.5 4.5"/></svg>사진
       </button>
       <button class="only-split" role="tab" data-tab="s-split" aria-selected="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9.3 4v16M14.7 4v16"/></svg>분할
+      </button>
+      <button class="" role="tab" data-tab="filter" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg>필터
+      </button>
+      <button class="" role="tab" data-tab="lens" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 4v2.6M12 17.4V20M4 12h2.6M17.4 12H20"/></svg>렌즈
+      </button>
+      <button class="" role="tab" data-tab="film" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M5 8.5h14M5 15.5h14M9 3.5v5M15 3.5v5M9 15.5v5M15 15.5v5"/></svg>필름
+      </button>
+      <button class="only-collage" role="tab" data-tab="motion" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3.5c.6 4.2 2.3 5.9 6.5 6.5-4.2.6-5.9 2.3-6.5 6.5-.6-4.2-2.3-5.9-6.5-6.5 4.2-.6 5.9-2.3 6.5-6.5z"/><path d="M18.5 15.5v4M16.5 17.5h4"/></svg>움직임
       </button>
     </nav>
   </div>
@@ -408,7 +499,9 @@ const S = {
   cells:Array(9).fill(null), sel:-1,
   fx:'sparkle', order:'seq', interval:0.45, hold:2, seed:1,
   split:{rows:3, cell:null},
+  flt:null, scope:'all', kb:false, flicker:false,
 };
+let UID = 0;
 
 /* ---------- 요소 ---------- */
 const pv = $('#pv'), pctx = pv.getContext('2d');
@@ -416,7 +509,17 @@ const rec = $('#rec');
 const stageBox = $('#stageBox');
 const fileMulti = $('#fileMulti'), fileOne = $('#fileOne');
 let PW = 1, PH = 1, DPR = 1;
+const ptrs = new Map();
 let pendingIdx = -1;
+let fastUntil = 0, settleT = 0, rq = 0;
+const FAST_PX = 200000;
+function interacting(){ return ptrs.size > 0 || performance.now() < fastUntil; }
+function fastQ(w, h){ return interacting() ? Math.min(1, Math.sqrt(FAST_PX / Math.max(1, w*h))) : 1; }
+function requestDraw(){ if (!rq) rq = requestAnimationFrame(() => { rq = 0; draw(); }); }
+function markFast(ms = 400){
+  fastUntil = performance.now() + ms;
+  clearTimeout(settleT); settleT = setTimeout(() => { if (!ptrs.size) requestDraw(); }, ms + 30);
+}
 let playing = false, playRAF = 0, playCache = null, recording = false;
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 const wide = () => matchMedia('(min-width:861px)').matches;
@@ -506,17 +609,298 @@ async function loadImage(file, maxEdge){
     const c = document.createElement('canvas');
     c.width = Math.max(1, Math.round(ow * k)); c.height = Math.max(1, Math.round(oh * k));
     const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height);
-    return {img:c, ow, oh, zoom:1, nx:0, ny:0, avg:avgColor(c)};
+    return {img:c, ow, oh, zoom:1, nx:0, ny:0, avg:avgColor(c), uid:++UID, flt:null, _fc:null};
   } catch (e) {
     throw new Error(heic ? 'HEIC' : 'LOAD');
   } finally { URL.revokeObjectURL(url); }
 }
-function freeCell(c){ if (c && c.img){ c.img.width = 0; c.img.height = 0; } }
+function freeCell(c){
+  if (!c) return;
+  if (c.img){ c.img.width = 0; c.img.height = 0; }
+  if (c._fc){ c._fc.cv.width = 0; c._fc = null; }
+  if (c._px){ c._px.width = 0; c._px = null; }
+}
+/* 미리보기용 축소본: 큰 원본을 매번 줄여 그리지 않도록 한 번만 만들어 둠 (저장은 항상 원본 사용) */
+function previewSrc(cell, dw){
+  if (cell._px === undefined){
+    const iw = cell.img.width, ih = cell.img.height, k = 1400 / Math.max(iw, ih);
+    if (k >= 0.8) cell._px = null;
+    else {
+      const c = document.createElement('canvas'); c.width = Math.round(iw*k); c.height = Math.round(ih*k);
+      const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(cell.img, 0, 0, c.width, c.height);
+      cell._px = c;
+    }
+  }
+  return (cell._px && dw <= cell._px.width * 1.05) ? cell._px : cell.img;
+}
 function loadErrorMsg(e){
   return e.message === 'HEIC'
     ? 'HEIC 사진은 이 브라우저에서 열 수 없습니다. 아이폰에서 이 앱으로 직접 넣거나, 아이폰 설정 > 카메라 > 포맷 > 높은 호환성으로 바꿔 주세요.'
     : '이 파일은 사진으로 열 수 없습니다. JPG 또는 PNG 파일을 넣어 주세요.';
 }
+
+/* ---------- 필터 엔진 (캔버스 filter 없이 픽셀을 직접 계산) ---------- */
+const PRESET_DEFS = {
+  none:{},
+  mono:{gs:1, con:1.12},
+  sepia:{sep:1, con:1.05, bri:4},
+  film:{sat:.92, con:1.08, temp:12, fade:14, tsh:[22,44,52], thi:[255,226,190], tamt:.2},
+  cool:{sat:.95, con:1.06, temp:-16, bri:2, tsh:[18,32,70], thi:[210,230,255], tamt:.14},
+  fade:{sat:.8, con:.92, temp:8, fade:38, tsh:[40,40,60], thi:[255,240,214], tamt:.14},
+  vivid:{sat:1.3, con:1.18},
+  duo:{gs:1, tsh:[18,20,56], thi:[255,228,190], tamt:1},
+};
+const PRESET_LIST = [['none','원본'],['mono','흑백'],['sepia','세피아'],['film','필름'],['cool','쿨톤'],['fade','빈티지'],['vivid','선명'],['duo','모노톤']];
+function todayStamp(){
+  const d = new Date(), p = n => String(n).padStart(2, '0');
+  return `'${String(d.getFullYear()).slice(2)} ${p(d.getMonth()+1)} ${p(d.getDate())}`;
+}
+const FLT0 = () => ({
+  preset:'none', strength:100, br:0, ct:0, sa:0, tp:0, sh:0,
+  lens:'none', tilt:{pos:50, width:26, blur:60, angle:0}, rad:{x:50, y:50, size:35, blur:60},
+  glow:0, vig:0, grain:0, leak:'none', leakAmt:60, date:false, dateText:todayStamp(), frame:'none',
+});
+const cloneFlt = f => JSON.parse(JSON.stringify(f));
+function fltActive(f){
+  return (f.preset !== 'none' && f.strength > 0) || !!(f.br || f.ct || f.sa || f.tp || f.sh) || f.lens !== 'none' ||
+         f.glow > 0 || f.vig > 0 || f.grain > 0 || (f.leak !== 'none' && f.leakAmt > 0) || (f.date && !!f.dateText) || f.frame !== 'none';
+}
+function smooth(t){ t = t < 0 ? 0 : t > 1 ? 1 : t; return t*t*(3 - 2*t); }
+function hn(x, y, s){
+  let h = (Math.imul(x, 374761393) + Math.imul(y, 668265263) + Math.imul(s, 2147483647)) | 0;
+  h = Math.imul(h ^ (h >>> 13), 1274126177); h ^= h >>> 16;
+  return (h >>> 0) / 4294967295;
+}
+/* 상자 흐림: 가로/세로 한 번씩 */
+function blurPass(src, dst, w, h, r, horiz){
+  const n = horiz ? w : h, m = horiz ? h : w, sa = horiz ? 4 : w*4, sb = horiz ? w*4 : 4, inv = 1 / (2*r + 1), L = n - 1;
+  for (let line = 0; line < m; line++){
+    const b0 = line * sb;
+    let s0 = src[b0]*(r + 1), s1 = src[b0+1]*(r + 1), s2 = src[b0+2]*(r + 1);
+    for (let k = 1; k <= r; k++){ const o = b0 + (k < L ? k : L)*sa; s0 += src[o]; s1 += src[o+1]; s2 += src[o+2]; }
+    for (let i = 0; i < n; i++){
+      const o = b0 + i*sa; dst[o] = s0*inv; dst[o+1] = s1*inv; dst[o+2] = s2*inv;
+      const ai = i + r + 1, ri = i - r, oa = b0 + (ai < L ? ai : L)*sa, orr = b0 + (ri > 0 ? ri : 0)*sa;
+      s0 += src[oa] - src[orr]; s1 += src[oa+1] - src[orr+1]; s2 += src[oa+2] - src[orr+2];
+    }
+  }
+}
+function boxBlur(data, w, h, r, iters){
+  const tmp = new Uint8ClampedArray(data.length);
+  for (let k = 0; k < iters; k++){ blurPass(data, tmp, w, h, r, true); blurPass(tmp, data, w, h, r, false); }
+}
+/* 전체 사진의 작은 복사본(흐림 계산용). 큰 사진도 작은 크기에서 흐리게 만들어 빠르게 처리 */
+function makeWhole(drawFn, TW, TH, maxE){
+  const s = Math.min(1, (maxE || 320) / Math.max(TW, TH));
+  const lw = Math.max(1, Math.round(TW*s)), lh = Math.max(1, Math.round(TH*s));
+  const c = document.createElement('canvas'); c.width = lw; c.height = lh;
+  const x = c.getContext('2d', {willReadFrequently:true}); x.imageSmoothingQuality = 'high';
+  drawFn(x, lw, lh, s);
+  return {c, s, lw, lh, cache:{}};
+}
+function levelData(whole, rFull){
+  const rl = Math.max(1, Math.round(rFull * whole.s));
+  if (whole.cache[rl]) return whole.cache[rl];
+  const x = whole.c.getContext('2d', {willReadFrequently:true});
+  const id = x.getImageData(0, 0, whole.lw, whole.lh);
+  boxBlur(id.data, whole.lw, whole.lh, rl, 3);
+  return (whole.cache[rl] = id.data);
+}
+function freeWhole(wh){ if (wh){ wh.c.width = 0; wh.cache = {}; } }
+function fineBlur(d, w, h){
+  const out = new Uint8ClampedArray(d);
+  boxBlur(out, w, h, Math.max(1, Math.round(Math.min(w, h) / 450)), 1);
+  return out;
+}
+/* g: {ox,oy,TW,TH,rs,idealBlk,seed,base,whole}  ox,oy = 이 조각이 전체에서 놓인 위치, TW,TH = 전체 크기 */
+function applyFx(cv, f, g){
+  const w = cv.width, h = cv.height;
+  const hasAdj = !!(f.br || f.ct || f.sa || f.tp || f.lens === 'tilt');
+  const needPix = f.preset !== 'none' || hasAdj || f.sh > 0 || f.lens !== 'none' || f.glow > 0 || f.vig > 0 || f.grain > 0;
+  if (!needPix) return;
+  const ctx = cv.getContext('2d', {willReadFrequently:true});
+  const id = ctx.getImageData(0, 0, w, h), d = id.data;
+  const W = g.TW, H = g.TH, ox = g.ox, oy = g.oy, cx = W/2, cy = H/2, maxd = Math.sqrt(cx*cx + cy*cy), minDim = Math.min(W, H);
+  const P = PRESET_DEFS[f.preset] || {}, st = f.strength / 100, usePre = f.preset !== 'none' && st > 0;
+  const gs = P.gs || 0, sep = P.sep || 0, psat = P.sat === undefined ? 1 : P.sat, pcon = P.con === undefined ? 1 : P.con;
+  const pbri = P.bri || 0, ptmp = P.temp || 0, pfade = P.fade || 0, tamt = P.tamt || 0, tsh = P.tsh || [0,0,0], thi = P.thi || [255,255,255];
+  const tilt = f.lens === 'tilt', radial = f.lens === 'radial';
+  const br = f.br * 0.75, ctf = 1 + (f.ct + (tilt ? 6 : 0)) / 100, saf = 1 + (f.sa + (tilt ? 12 : 0)) / 100, tpv = f.tp * 0.35;
+  const shk = f.sh / 100 * 1.6, glowA = f.glow / 100 * 0.9, vigA = f.vig / 100 * 0.85, gAmt = f.grain / 100 * 42;
+  const blk = Math.max(1, Math.round(g.idealBlk * g.rs)), seed = g.seed | 0;
+  const bl = (tilt ? f.tilt.blur : radial ? f.rad.blur : 0) / 100;
+  if (((f.lens !== 'none' && bl > 0) || f.glow > 0) && !g.whole) g.whole = makeWhole((x, lw, lh) => x.drawImage(cv, 0, 0, lw, lh), W, H, g.fast ? 200 : 320);
+  let B1 = null, B2 = null, B3 = null, BG = null, F = null, XI0 = null, XI1 = null, XW = null, LW = 0;
+  if (f.lens !== 'none' && bl > 0){
+    const R = Math.max(1, 0.05 * minDim * bl);
+    B1 = levelData(g.whole, R*0.35); B2 = levelData(g.whole, R*0.7); B3 = levelData(g.whole, R);
+  }
+  if (f.glow > 0) BG = levelData(g.whole, 0.03 * minDim);
+  if (B1 || BG){
+    /* 작은 흐림 이미지를 픽셀마다 쌍선형으로 읽음 (큰 버퍼를 만들지 않아 빠르고 메모리도 적게 씀) */
+    const s = g.whole.s; LW = g.whole.lw;
+    XI0 = new Int32Array(w); XI1 = new Int32Array(w); XW = new Float32Array(w);
+    for (let x = 0; x < w; x++){
+      let u = (x + ox + 0.5) * s - 0.5; u = u < 0 ? 0 : u > LW - 1 ? LW - 1 : u;
+      const u0 = u | 0; XI0[x] = u0 * 4; XI1[x] = Math.min(u0 + 1, LW - 1) * 4; XW[x] = u - u0;
+    }
+  }
+  const LH = g.whole ? g.whole.lh : 0, LS = g.whole ? g.whole.s : 0;
+  if (f.sh > 0) F = fineBlur(d, w, h);
+  let sn = 0, cs = 1, off = 0, half = 0, feather = 1, rfx = 0, rfy = 0, inner = 0;
+  if (tilt){
+    const th = f.tilt.angle * Math.PI / 180; sn = Math.sin(th); cs = Math.cos(th);
+    off = (f.tilt.pos - 50) / 100 * H; half = f.tilt.width / 200 * H; feather = Math.max(1, 0.3 * H);
+  }
+  if (radial){ rfx = f.rad.x / 100 * W; rfy = f.rad.y / 100 * H; inner = f.rad.size / 100 * 0.9; }
+  for (let y = 0; y < h; y++){
+    const gy = y + oy;
+    let R0 = 0, R1 = 0, wy = 0;
+    if (XI0){
+      let v = (gy + 0.5) * LS - 0.5; v = v < 0 ? 0 : v > LH - 1 ? LH - 1 : v;
+      const v0 = v | 0; R0 = v0 * LW * 4; R1 = Math.min(v0 + 1, LH - 1) * LW * 4; wy = v - v0;
+    }
+    for (let x = 0; x < w; x++){
+      const i = (y*w + x) * 4, gx = x + ox;
+      let r = d[i], gg = d[i+1], b = d[i+2];
+      let a00 = 0, a01 = 0, a10 = 0, a11 = 0, w00 = 0, w01 = 0, w10 = 0, w11 = 0;
+      if (XI0){
+        const wx = XW[x]; a00 = R0 + XI0[x]; a01 = R0 + XI1[x]; a10 = R1 + XI0[x]; a11 = R1 + XI1[x];
+        w00 = (1 - wx) * (1 - wy); w01 = wx * (1 - wy); w10 = (1 - wx) * wy; w11 = wx * wy;
+      }
+      if (F){ r += (r - F[i]) * shk; gg += (gg - F[i+1]) * shk; b += (b - F[i+2]) * shk; }
+      if (B1){
+        let m;
+        if (tilt){ const dd = (gx - cx) * sn + (gy - cy) * cs - off, ad = dd < 0 ? -dd : dd; m = ad <= half ? 0 : smooth((ad - half) / feather); }
+        else { const dx = (gx - rfx) / (W*0.5), dy = (gy - rfy) / (H*0.5); m = smooth((Math.sqrt(dx*dx + dy*dy) - inner) / 0.6); }
+        const ff = m * 3;
+        if (ff > 0.001){
+          let a0, a1, a2, b0, b1, b2, t;
+          const P1 = ff < 1 ? null : ff < 2 ? B1 : B2, P2 = ff < 1 ? B1 : ff < 2 ? B2 : B3;
+          t = ff < 1 ? ff : ff < 2 ? ff - 1 : Math.min(1, ff - 2);
+          if (P1){ a0 = P1[a00]*w00 + P1[a01]*w01 + P1[a10]*w10 + P1[a11]*w11; a1 = P1[a00+1]*w00 + P1[a01+1]*w01 + P1[a10+1]*w10 + P1[a11+1]*w11; a2 = P1[a00+2]*w00 + P1[a01+2]*w01 + P1[a10+2]*w10 + P1[a11+2]*w11; }
+          else { a0 = r; a1 = gg; a2 = b; }
+          b0 = P2[a00]*w00 + P2[a01]*w01 + P2[a10]*w10 + P2[a11]*w11; b1 = P2[a00+1]*w00 + P2[a01+1]*w01 + P2[a10+1]*w10 + P2[a11+1]*w11; b2 = P2[a00+2]*w00 + P2[a01+2]*w01 + P2[a10+2]*w10 + P2[a11+2]*w11;
+          r = a0 + (b0 - a0) * t; gg = a1 + (b1 - a1) * t; b = a2 + (b2 - a2) * t;
+        }
+      }
+      if (BG){
+        let q = (BG[a00]*w00 + BG[a01]*w01 + BG[a10]*w10 + BG[a11]*w11 - 90) * 1.7; q = q < 0 ? 0 : q > 255 ? 255 : q; r = 255 - (255 - r) * (255 - q*glowA) / 255;
+        q = (BG[a00+1]*w00 + BG[a01+1]*w01 + BG[a10+1]*w10 + BG[a11+1]*w11 - 90) * 1.7; q = q < 0 ? 0 : q > 255 ? 255 : q; gg = 255 - (255 - gg) * (255 - q*glowA) / 255;
+        q = (BG[a00+2]*w00 + BG[a01+2]*w01 + BG[a10+2]*w10 + BG[a11+2]*w11 - 90) * 1.7; q = q < 0 ? 0 : q > 255 ? 255 : q; b = 255 - (255 - b) * (255 - q*glowA) / 255;
+      }
+      if (usePre){
+        let pr = r, pg = gg, pb = b;
+        if (gs){ const L = .299*pr + .587*pg + .114*pb; pr += (L - pr)*gs; pg += (L - pg)*gs; pb += (L - pb)*gs; }
+        if (sep){
+          const sr = .393*pr + .769*pg + .189*pb, sg = .349*pr + .686*pg + .168*pb, sb = .272*pr + .534*pg + .131*pb;
+          pr += (sr - pr)*sep; pg += (sg - pg)*sep; pb += (sb - pb)*sep;
+        }
+        if (psat !== 1){ const L = .299*pr + .587*pg + .114*pb; pr = L + (pr - L)*psat; pg = L + (pg - L)*psat; pb = L + (pb - L)*psat; }
+        if (pcon !== 1){ pr = (pr - 128)*pcon + 128; pg = (pg - 128)*pcon + 128; pb = (pb - 128)*pcon + 128; }
+        if (pbri || ptmp){ pr += pbri + ptmp; pg += pbri; pb += pbri - ptmp; }
+        if (pfade){ const k = (255 - pfade) / 255; pr = pfade + pr*k; pg = pfade + pg*k; pb = pfade + pb*k; }
+        if (tamt){
+          let L = (.299*pr + .587*pg + .114*pb) / 255; L = L < 0 ? 0 : L > 1 ? 1 : L;
+          pr = pr*(1 - tamt) + (tsh[0] + (thi[0] - tsh[0])*L)*tamt;
+          pg = pg*(1 - tamt) + (tsh[1] + (thi[1] - tsh[1])*L)*tamt;
+          pb = pb*(1 - tamt) + (tsh[2] + (thi[2] - tsh[2])*L)*tamt;
+        }
+        r += (pr - r)*st; gg += (pg - gg)*st; b += (pb - b)*st;
+      }
+      if (hasAdj){
+        if (br){ r += br; gg += br; b += br; }
+        if (ctf !== 1){ r = (r - 128)*ctf + 128; gg = (gg - 128)*ctf + 128; b = (b - 128)*ctf + 128; }
+        if (tpv){ r += tpv; b -= tpv; }
+        if (saf !== 1){ const L = .299*r + .587*gg + .114*b; r = L + (r - L)*saf; gg = L + (gg - L)*saf; b = L + (b - L)*saf; }
+      }
+      if (vigA){
+        const ddx = gx - cx, ddy = gy - cy, vf = 1 - vigA * smooth((Math.sqrt(ddx*ddx + ddy*ddy) / maxd - 0.3) / 0.7);
+        r *= vf; gg *= vf; b *= vf;
+      }
+      if (gAmt){
+        const n = (hn((gx / blk) | 0, (gy / blk) | 0, seed) - 0.5) * 2;
+        const L = (.299*r + .587*gg + .114*b) / 127.5 - 1, dl = n * gAmt * (0.35 + 0.65 * (1 - (L < 0 ? -L : L)));
+        r += dl; gg += dl; b += dl;
+      }
+      d[i] = r; d[i+1] = gg; d[i+2] = b;
+    }
+  }
+  ctx.putImageData(id, 0, 0);
+}
+function drawOverlays(cv, f, g){
+  const w = cv.width, h = cv.height, x = cv.getContext('2d');
+  if (f.leak !== 'none' && f.leakAmt > 0){
+    const a = f.leakAmt / 100, W = g.TW, H = g.TH, S0 = Math.max(W, H);
+    const defs = {
+      warm:[[-0.05,0.28,0.8,'255,110,40'],[0.0,-0.05,0.45,'255,170,60']],
+      yellow:[[1.06,0.08,0.75,'255,214,80'],[0.95,0.95,0.4,'255,150,60']],
+      pink:[[0.5,1.1,0.8,'255,90,150'],[0.05,0.9,0.4,'180,90,255']],
+    }[f.leak] || [];
+    x.save(); x.globalCompositeOperation = 'screen';
+    defs.forEach(([fx0, fy0, rr, col]) => {
+      const cx0 = fx0*W - g.ox, cy0 = fy0*H - g.oy, R = rr*S0;
+      const gr = x.createRadialGradient(cx0, cy0, 0, cx0, cy0, R);
+      gr.addColorStop(0, `rgba(${col},${0.85*a})`); gr.addColorStop(0.45, `rgba(${col},${0.32*a})`); gr.addColorStop(1, `rgba(${col},0)`);
+      x.fillStyle = gr; x.fillRect(0, 0, w, h);
+    });
+    x.restore();
+  }
+  if (f.date && f.dateText){
+    const fs = Math.max(8, g.base * 0.045), pad = g.base * 0.05;
+    x.save();
+    x.font = `700 ${fs}px "Courier New", ui-monospace, Menlo, monospace`;
+    x.textAlign = 'right'; x.textBaseline = 'alphabetic';
+    x.shadowColor = 'rgba(255,120,30,.85)'; x.shadowBlur = fs * 0.35;
+    x.fillStyle = '#FF8B2B';
+    x.fillText(f.dateText, g.TW - pad - g.ox, g.TH - pad - g.oy);
+    x.restore();
+  }
+}
+function frameBox(fr, w, h){
+  const m = Math.min(w, h);
+  if (fr === 'polaroid'){ const p = Math.round(m*0.06); return {l:p, r:p, t:p, b:Math.round(m*0.2), bg:'#FAF8F3'}; }
+  if (fr === 'film'){ const s = Math.round(w*0.11), v = Math.round(w*0.03); return {l:s, r:s, t:v, b:v, bg:'#121212'}; }
+  return {l:0, r:0, t:0, b:0, bg:'#000'};
+}
+function paintFrame(ctx, w, h, fr, box){
+  ctx.fillStyle = box.bg; ctx.fillRect(0, 0, w, h);
+  if (fr === 'film'){
+    const s = box.l, hole = s*0.42, gap = s*0.82;
+    ctx.fillStyle = '#D9D5CC';
+    for (let yy = gap*0.35; yy < h; yy += gap){
+      roundPath(ctx, (s - hole)/2, yy, hole, hole*0.72, hole*0.18); ctx.fill();
+      roundPath(ctx, w - s + (s - hole)/2, yy, hole, hole*0.72, hole*0.18); ctx.fill();
+    }
+  }
+}
+/* 한 칸을 그려서 효과까지 적용한 캔버스를 돌려줌 */
+function renderCell(cell, f, w, h, refW, cacheIt, q){
+  const mk = (ww, hh) => [ww, hh, Math.round(refW), cell.uid, cell.zoom.toFixed(4), cell.nx.toFixed(4), cell.ny.toFixed(4), JSON.stringify(f)].join('|');
+  const fw = Math.max(1, Math.round(w)), fh = Math.max(1, Math.round(h));
+  if (cacheIt && cell._fc && cell._fc.key === mk(fw, fh)) return cell._fc.cv;
+  /* 조작 중에는 낮은 해상도로 빠르게 계산하고, 손을 떼면 원래 해상도로 다시 그림 */
+  if (q && q < 1){ w = Math.max(1, Math.round(w*q)); h = Math.max(1, Math.round(h*q)); } else { w = fw; h = fh; }
+  const key = mk(w, h);
+  if (cacheIt && cell._fc && cell._fc.key === key) return cell._fc.cv;
+  const box = frameBox(f.frame, w, h), iw = Math.max(1, w - box.l - box.r), ih = Math.max(1, h - box.t - box.b);
+  const inner = document.createElement('canvas'); inner.width = iw; inner.height = ih;
+  const ix = inner.getContext('2d', {willReadFrequently:true}); ix.imageSmoothingQuality = 'high';
+  const p = placement(cell, iw, ih); ix.drawImage(cacheIt ? previewSrc(cell, p.dw) : cell.img, p.dx, p.dy, p.dw, p.dh);
+  const g = {ox:0, oy:0, TW:iw, TH:ih, rs:iw / Math.max(1, refW), idealBlk:Math.max(1, Math.round(refW / 700)), seed:cell.uid, base:Math.min(iw, ih), whole:null, fast:!!(q && q < 1)};
+  applyFx(inner, f, g); drawOverlays(inner, f, g);
+  freeWhole(g.whole);
+  let out = inner;
+  if (f.frame !== 'none'){
+    out = document.createElement('canvas'); out.width = w; out.height = h;
+    const ox2 = out.getContext('2d'); paintFrame(ox2, w, h, f.frame, box); ox2.drawImage(inner, box.l, box.t);
+    inner.width = 0;
+  }
+  if (cacheIt){ if (cell._fc && cell._fc.cv !== out) cell._fc.cv.width = 0; cell._fc = {key, cv:out}; }
+  return out;
+}
+
+S.flt = FLT0();
 
 /* ---------- 배치 계산 ---------- */
 function exportDims(){ return S.mode === 'split' ? {W:3240, H:1440*S.split.rows} : {W:PB[S.preset].w, H:PB[S.preset].h}; }
@@ -555,15 +939,23 @@ function drawCollage(ctx, W, H, preview){
   ctx.setTransform(1,0,0,1,0,0); ctx.globalAlpha = 1;
   ctx.fillStyle = S.bg; ctx.fillRect(0, 0, W, H);
   const L = layout(W, H), light = isLight(S.bg);
-  const ex = exportDims(), Le = preview ? layout(ex.W, ex.H) : null;
+  const ex = exportDims(), Le = preview ? layout(ex.W, ex.H) : null, qf = preview ? fastQ(W, H) : 1;
   L.cells.forEach((r, i) => {
     const cell = S.cells[i];
     ctx.save();
     roundPath(ctx, r.x, r.y, r.w, r.h, L.rad); ctx.clip();
     if (cell){
-      const p = placement(cell, r.w, r.h);
-      ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(cell.img, r.x + p.dx, r.y + p.dy, p.dw, p.dh);
+      const flt = cellFlt(cell);
+      if (fltActive(flt)){
+        const cv = renderCell(cell, flt, r.w, r.h, preview ? Le.cells[i].w : r.w, preview, qf);
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(cv, r.x, r.y, r.w, r.h);
+        if (!preview) cv.width = 0;
+      } else {
+        const p = placement(cell, r.w, r.h);
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(preview ? previewSrc(cell, p.dw) : cell.img, r.x + p.dx, r.y + p.dy, p.dw, p.dh);
+      }
     } else {
       ctx.fillStyle = light ? 'rgba(22,25,31,.07)' : 'rgba(255,255,255,.12)';
       ctx.fillRect(r.x, r.y, r.w, r.h);
@@ -601,9 +993,21 @@ function drawSplit(ctx, W, H, preview){
   ctx.fillStyle = '#F7F7F7'; ctx.fillRect(0, 0, W, H);
   const sc = S.split.cell, rows = S.split.rows;
   if (sc){
-    const p = placement(sc, W, H);
-    ctx.imageSmoothingQuality = 'high';
-    ctx.drawImage(sc.img, p.dx, p.dy, p.dw, p.dh);
+    const p = placement(sc, W, H), f2 = Object.assign({}, S.flt, {frame:'none'});
+    if (fltActive(f2)){
+      const q = preview ? fastQ(W, H) : 1, w2 = Math.max(1, Math.round(W*q)), h2 = Math.max(1, Math.round(H*q));
+      const t = document.createElement('canvas'); t.width = w2; t.height = h2;
+      const tx = t.getContext('2d', {willReadFrequently:true}); tx.imageSmoothingQuality = 'high';
+      const p2 = placement(sc, w2, h2);
+      tx.drawImage(preview ? previewSrc(sc, p2.dw) : sc.img, p2.dx, p2.dy, p2.dw, p2.dh);
+      const g = {ox:0, oy:0, TW:w2, TH:h2, rs:w2/3240, idealBlk:2, seed:7, base:Math.min(w2/3, h2/rows), whole:null, fast:q < 1};
+      applyFx(t, f2, g); drawOverlays(t, f2, g);
+      ctx.imageSmoothingQuality = 'high'; ctx.drawImage(t, 0, 0, W, H); t.width = 0;
+      freeWhole(g.whole);
+    } else {
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(preview ? previewSrc(sc, p.dw) : sc.img, p.dx, p.dy, p.dw, p.dh);
+    }
   } else if (preview){
     ctx.fillStyle = '#5F6670';
     ctx.font = `600 ${Math.max(12, W*0.032)}px ${getComputedStyle(document.body).fontFamily}`;
@@ -629,6 +1033,7 @@ function drawSplit(ctx, W, H, preview){
   ctx.textAlign = 'start';
 }
 function draw(){
+  if (rq){ cancelAnimationFrame(rq); rq = 0; }
   if (playing || recording) return;
   if (S.mode === 'collage') drawCollage(pctx, PW, PH, true);
   else drawSplit(pctx, PW, PH, true);
@@ -692,9 +1097,9 @@ function panBy(idx, dx, dy){
 function setZoom(idx, z){
   const t = target(idx); if (!t) return;
   t.zoom = clamp(z, 1, 4);
-  draw(); syncZoomUI();
+  markFast(); requestDraw(); syncZoomUI();
 }
-const ptrs = new Map(); let G = null, suppressClick = false;
+let G = null, suppressClick = false;
 pv.addEventListener('pointerdown', e => {
   if (recording) return;
   if (playing) stopPlay();
@@ -712,7 +1117,7 @@ pv.addEventListener('pointermove', e => {
   const p = getPos(e); ptrs.set(e.pointerId, p);
   if (G.type === 'pan'){
     if (!G.moved && Math.hypot(p.x - G.sx, p.y - G.sy) > 6 * DPR) G.moved = true;
-    if (G.moved && G.idx !== -1 && target(G.idx)){ panBy(G.idx, p.x - G.lx, p.y - G.ly); draw(); }
+    if (G.moved && G.idx !== -1 && target(G.idx)){ panBy(G.idx, p.x - G.lx, p.y - G.ly); requestDraw(); }
     G.lx = p.x; G.ly = p.y;
   } else if (G.type === 'pinch' && ptrs.size >= 2){
     const [a, b] = [...ptrs.values()];
@@ -722,7 +1127,7 @@ pv.addEventListener('pointermove', e => {
 function endPtr(e, cancel){
   if (!ptrs.has(e.pointerId)) return;
   ptrs.delete(e.pointerId);
-  if (ptrs.size === 0){ suppressClick = cancel || !!(G && G.moved); G = null; }
+  if (ptrs.size === 0){ suppressClick = cancel || !!(G && G.moved); if (G && G.moved) requestDraw(); G = null; }
   else if (G && G.type === 'pinch'){
     const p = [...ptrs.values()][0];
     G = {type:'pan', idx:G.idx, sx:p.x, sy:p.y, lx:p.x, ly:p.y, moved:true};
@@ -751,7 +1156,7 @@ function onTap(idx){
   if (idx < 0){ S.sel = -1; syncUI(); draw(); return; }
   if (!S.cells[idx]){ pendingIdx = idx; fileOne.click(); return; }
   S.sel = idx;
-  if (S.open || wide()){ S.tab = 'photo'; applyTab(); }
+  if ((S.open || wide()) && !['filter', 'lens', 'film'].includes(S.tab)){ S.tab = 'photo'; applyTab(); }
   syncUI(); draw();
 }
 
@@ -833,7 +1238,7 @@ function field(parent, {id, label, min, max, step, get, set, fmt}){
   w.innerHTML = `<label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}"><output></output>`;
   parent.appendChild(w);
   const inp = w.querySelector('input'), out = w.querySelector('output');
-  inp.addEventListener('input', () => { set(parseFloat(inp.value)); out.textContent = fmt(get()); changed(); });
+  inp.addEventListener('input', () => { set(parseFloat(inp.value)); out.textContent = fmt(get()); markFast(); changed(); });
   SYNCS.push(() => { inp.value = get(); out.textContent = fmt(get()); });
 }
 const deco = $('#decoFields');
@@ -894,6 +1299,123 @@ function buildSwatches(){
   });
 }
 buildSwatches();
+
+/* ---------- 필터 컨트롤 ---------- */
+function selCell(){ return (S.mode === 'collage' && S.scope === 'cell' && S.sel >= 0 && S.sel < S.grid*S.grid) ? S.cells[S.sel] : null; }
+function viewFlt(){ const c = selCell(); return (c && c.flt) ? c.flt : S.flt; }
+function editFlt(){ const c = selCell(); if (c){ if (!c.flt) c.flt = cloneFlt(S.flt); return c.flt; } return S.flt; }
+function cellFlt(cell){ return (S.mode === 'collage' && cell.flt) ? cell.flt : S.flt; }
+const fGet = path => { const f = viewFlt(); return path.length === 2 ? f[path[0]][path[1]] : f[path[0]]; };
+const fSet = (path, v) => { const f = editFlt(); if (path.length === 2) f[path[0]][path[1]] = v; else f[path[0]] = v; };
+function fxField(parent, {id, label, min, max, step, path, fmt}){
+  const w = document.createElement('div'); w.className = 'field';
+  w.innerHTML = `<label for="${id}">${label}</label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}"><output></output>`;
+  parent.appendChild(w);
+  const inp = w.querySelector('input'), out = w.querySelector('output');
+  inp.addEventListener('input', () => { fSet(path, parseFloat(inp.value)); markFast(); changed(); });
+  SYNCS.push(() => { const v = fGet(path); inp.value = v; out.textContent = fmt(v); });
+}
+function fxSeg(id, path){
+  const el = $(id);
+  el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; fSet(path, b.dataset.v); changed(); });
+  SYNCS.push(() => el.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === String(fGet(path))))));
+}
+const SGN = v => v > 0 ? '+' + v : String(v), PCT = v => v + '%';
+fxField($('#fxStrength'), {id:'fStr', label:'강도', min:0, max:100, step:1, path:['strength'], fmt:PCT});
+const adj = $('#adjFields');
+fxField(adj, {id:'fBr', label:'밝기', min:-100, max:100, step:1, path:['br'], fmt:SGN});
+fxField(adj, {id:'fCt', label:'대비', min:-100, max:100, step:1, path:['ct'], fmt:SGN});
+fxField(adj, {id:'fSa', label:'채도', min:-100, max:100, step:1, path:['sa'], fmt:SGN});
+fxField(adj, {id:'fTp', label:'색온도', min:-100, max:100, step:1, path:['tp'], fmt:SGN});
+fxField(adj, {id:'fSh', label:'선명도', min:0, max:100, step:1, path:['sh'], fmt:v => v});
+$('#adjReset').addEventListener('click', () => { const f = editFlt(); f.br = f.ct = f.sa = f.tp = f.sh = 0; changed(); });
+const tf = $('#tiltFields'), rf = $('#radFields');
+fxField(tf, {id:'fTPos', label:'위치', min:0, max:100, step:1, path:['tilt','pos'], fmt:PCT});
+fxField(tf, {id:'fTW', label:'선명 폭', min:5, max:60, step:1, path:['tilt','width'], fmt:PCT});
+fxField(tf, {id:'fTB', label:'흐림', min:0, max:100, step:1, path:['tilt','blur'], fmt:v => v});
+fxField(tf, {id:'fTA', label:'각도', min:-90, max:90, step:1, path:['tilt','angle'], fmt:v => v + '도'});
+fxField(rf, {id:'fRX', label:'가로', min:0, max:100, step:1, path:['rad','x'], fmt:PCT});
+fxField(rf, {id:'fRY', label:'세로', min:0, max:100, step:1, path:['rad','y'], fmt:PCT});
+fxField(rf, {id:'fRS', label:'선명 크기', min:5, max:90, step:1, path:['rad','size'], fmt:PCT});
+fxField(rf, {id:'fRB', label:'흐림', min:0, max:100, step:1, path:['rad','blur'], fmt:v => v});
+fxSeg('#lensSeg', ['lens']);
+fxField($('#moodFields'), {id:'fGlow', label:'글로우', min:0, max:100, step:1, path:['glow'], fmt:v => v});
+fxField($('#moodFields'), {id:'fVig', label:'비네팅', min:0, max:100, step:1, path:['vig'], fmt:v => v});
+fxField($('#grainFields'), {id:'fGrain', label:'그레인', min:0, max:100, step:1, path:['grain'], fmt:v => v});
+fxSeg('#leakSeg', ['leak']);
+fxField($('#leakFields'), {id:'fLeak', label:'세기', min:0, max:100, step:1, path:['leakAmt'], fmt:v => v});
+fxSeg('#frameSeg', ['frame']);
+$('#dateSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; fSet(['date'], b.dataset.v === 'on'); changed(); });
+SYNCS.push(() => $('#dateSeg').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === (fGet(['date']) ? 'on' : 'off')))));
+$('#dateText').addEventListener('input', e => { fSet(['dateText'], e.target.value); changed(); });
+SYNCS.push(() => { const v = fGet(['dateText']), el = $('#dateText'); if (el.value !== v) el.value = v; });
+seg('#kbSeg', () => S.kb ? 'on' : 'off', v => S.kb = v === 'on');
+seg('#flSeg', () => S.flicker ? 'on' : 'off', v => S.flicker = v === 'on');
+
+/* 적용 범위 (전체 / 선택한 칸) */
+document.querySelectorAll('.scopebar').forEach(sb => {
+  sb.querySelector('.seg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; S.scope = b.dataset.v; changed(); });
+  sb.querySelector('.scopeReset').addEventListener('click', () => { const c = S.cells[S.sel]; if (c && c.flt){ c.flt = null; changed(); } });
+});
+SYNCS.push(() => {
+  const n = S.grid*S.grid, c = (S.sel >= 0 && S.sel < n) ? S.cells[S.sel] : null;
+  let info;
+  if (S.scope === 'all') info = '모든 칸에 같은 설정을 적용합니다. 칸마다 따로 설정한 곳은 그 설정이 우선합니다.';
+  else if (c) info = `${S.sel + 1}번 칸에만 적용합니다.` + (c.flt ? ' (개별 설정 중)' : ' 아직 전체 설정을 따르고 있어, 바꾸면 이 칸만 따로 설정됩니다.');
+  else info = '미리보기에서 칸을 눌러 선택하세요.';
+  document.querySelectorAll('.scopebar').forEach(sb => {
+    sb.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === S.scope)));
+    sb.querySelector('.scopeinfo').textContent = info;
+    sb.querySelector('.scopeReset').hidden = !(S.scope === 'cell' && c && c.flt);
+  });
+  const lock = S.mode === 'collage' && S.scope === 'cell' && !selCell();
+  $('#panel').dataset.fxlock = lock ? '1' : '0';
+  const lens = fGet(['lens']);
+  $('#tiltFields').hidden = lens !== 'tilt'; $('#radFields').hidden = lens !== 'radial';
+  $('#lensHelp').textContent = lens === 'tilt' ? '가운데 띠는 선명하게, 위아래는 흐리게 해서 미니어처처럼 보이게 합니다. 색도 살짝 진해집니다.'
+    : lens === 'radial' ? '한 지점만 선명하게 남기고 주변을 흐리게 합니다.' : '';
+});
+
+/* 필터 미리보기 칩 */
+function drawSample(x, w, h){
+  const g = x.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#78a8e8'); g.addColorStop(.55, '#f3d2a2'); g.addColorStop(1, '#f6e3c4');
+  x.fillStyle = g; x.fillRect(0, 0, w, h);
+  x.fillStyle = '#ffd45e'; x.beginPath(); x.arc(w*.7, h*.28, w*.13, 0, 7); x.fill();
+  x.fillStyle = '#5f9a5a'; x.beginPath(); x.ellipse(w*.25, h, w*.7, h*.32, 0, 0, 7); x.fill();
+  x.fillStyle = '#3f7a52'; x.beginPath(); x.ellipse(w*.85, h*1.02, w*.6, h*.26, 0, 0, 7); x.fill();
+  x.fillStyle = '#c4503a'; x.fillRect(w*.42, h*.62, w*.16, h*.12);
+  x.fillStyle = '#7a3a2a'; x.beginPath(); x.moveTo(w*.40, h*.62); x.lineTo(w*.5, h*.54); x.lineTo(w*.60, h*.62); x.fill();
+}
+(function buildChips(){
+  const box = $('#presetFx');
+  PRESET_LIST.forEach(([k, label]) => {
+    const b = document.createElement('button'); b.className = 'fchip'; b.dataset.k = k;
+    b.innerHTML = `<canvas width="88" height="110"></canvas><span>${label}</span>`;
+    b.addEventListener('click', () => { fSet(['preset'], k); changed(); });
+    box.appendChild(b);
+  });
+  SYNCS.push(() => box.querySelectorAll('.fchip').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === fGet(['preset'])))));
+})();
+let thumbKey = '';
+function refreshThumbs(){
+  const box = $('#presetFx'); if (!box.children.length) return;
+  const n = S.grid*S.grid;
+  const src = S.mode === 'split' ? S.split.cell : (S.cells[S.sel] || S.cells.slice(0, n).find(Boolean));
+  const key = src ? 'c' + src.uid : 'sample';
+  if (key === thumbKey) return; thumbKey = key;
+  const base = document.createElement('canvas'); base.width = 88; base.height = 110;
+  const bx = base.getContext('2d', {willReadFrequently:true});
+  if (src){ const p = placement({img:src.img, zoom:1, nx:0, ny:0}, 88, 110); bx.imageSmoothingQuality = 'high'; bx.drawImage(src.img, p.dx, p.dy, p.dw, p.dh); }
+  else drawSample(bx, 88, 110);
+  box.querySelectorAll('.fchip').forEach(ch => {
+    const t = document.createElement('canvas'); t.width = 88; t.height = 110;
+    const tx = t.getContext('2d', {willReadFrequently:true}); tx.drawImage(base, 0, 0);
+    const f = FLT0(); f.preset = ch.dataset.k;
+    applyFx(t, f, {ox:0, oy:0, TW:88, TH:110, rs:.1, idealBlk:1, seed:1, base:88, whole:null});
+    ch.querySelector('canvas').getContext('2d').drawImage(t, 0, 0); t.width = 0;
+  });
+  base.width = 0;
+}
 $('#caption').addEventListener('input', e => { S.caption = e.target.value; changed(); });
 
 document.querySelectorAll('.modeseg button').forEach(b => b.addEventListener('click', () => {
@@ -930,9 +1452,10 @@ function syncUI(){
   $('#videoHelp').textContent = k
     ? `약 ${totalTime(k).toFixed(1)}초, ${vd.W} × ${vd.H} px, ${fmt}. 동영상은 실제 재생 시간만큼 녹화되니 그동안 화면을 그대로 두세요. 배경음악은 인스타그램에서 넣으면 됩니다.`
     : '사진을 넣으면 효과를 미리 볼 수 있습니다.';
+  refreshThumbs();
   updateAmbient();
 }
-function changed(){ stopPlay(); syncUI(); draw(); }
+function changed(){ stopPlay(); syncUI(); requestDraw(); }
 
 /* ---------- 움직이는 효과 ---------- */
 function animOrder(){
@@ -948,21 +1471,28 @@ function animOrder(){
   return idx;
 }
 function totalTime(m){ return START + Math.max(0, m - 1) * S.interval + DUR[S.fx] + 0.5 + S.hold; }
-function buildCache(W, H){
-  const L = layout(W, H);
+function buildCache(W, H, preview){
+  const L = layout(W, H), Le = preview ? layout(exportDims().W, exportDims().H) : null;
   const items = L.cells.map((r, i) => {
     const cell = S.cells[i]; if (!cell) return null;
     const cw = Math.max(1, Math.round(r.w)), ch = Math.max(1, Math.round(r.h));
-    const c = document.createElement('canvas'); c.width = cw; c.height = ch;
-    const x = c.getContext('2d');
-    roundPath(x, 0, 0, cw, ch, L.rad); x.clip();
-    const p = placement(cell, cw, ch); x.imageSmoothingQuality = 'high';
-    x.drawImage(cell.img, p.dx, p.dy, p.dw, p.dh);
-    return {r, c};
+    const flt = cellFlt(cell);
+    let c, framed = false;
+    let shared = false;
+    if (fltActive(flt)){
+      c = renderCell(cell, flt, preview ? r.w : cw, preview ? r.h : ch, preview ? Le.cells[i].w : cw, !!preview, 1);
+      framed = flt.frame !== 'none'; shared = !!preview;
+    } else {
+      c = document.createElement('canvas'); c.width = cw; c.height = ch;
+      const x = c.getContext('2d'); x.imageSmoothingQuality = 'high';
+      const p = placement(cell, cw, ch); x.drawImage(preview ? previewSrc(cell, p.dw) : cell.img, p.dx, p.dy, p.dw, p.dh);
+    }
+    return {r, c, framed, shared};
   });
-  return {W, H, L, items, order:animOrder()};
+  const order = animOrder();
+  return {W, H, L, items, order, T:totalTime(order.length)};
 }
-function freeCache(C){ if (C) C.items.forEach(it => { if (it){ it.c.width = 0; it.c.height = 0; } }); }
+function freeCache(C){ if (C) C.items.forEach(it => { if (it && !it.shared){ it.c.width = 0; it.c.height = 0; } }); }
 function star(ctx, x, y, R, rot){
   const ri = R * 0.2; ctx.beginPath();
   for (let i = 0; i < 8; i++){
@@ -1015,22 +1545,25 @@ function drawFrame(ctx, C, t){
     ctx.save();
     ctx.globalAlpha = a;
     ctx.translate(r.x + r.w/2, r.y + r.h/2); ctx.scale(s, s);
+    roundPath(ctx, -r.w/2, -r.h/2, r.w, r.h, L.rad); ctx.clip();
+    if (S.kb && !it.framed){ const z = 1 + 0.08 * clamp((t - st) / Math.max(0.5, C.T - st), 0, 1); ctx.scale(z, z); }
     ctx.drawImage(c, -r.w/2, -r.h/2, r.w, r.h);
     if (fa > 0){
       ctx.globalAlpha = fa; ctx.fillStyle = '#FFFFFF';
-      roundPath(ctx, -r.w/2, -r.h/2, r.w, r.h, L.rad); ctx.fill();
+      ctx.fillRect(-r.w, -r.h, r.w*2, r.h*2);
     }
     ctx.restore();
     if (S.fx === 'sparkle' && p < 1.1) drawSparkles(ctx, r, idx, p);
   });
   const m = C.order.length, capStart = START + Math.max(0, m - 1) * S.interval + D * 0.6;
   drawCaption(ctx, L, W, clamp((t - capStart) / 0.5, 0, 1));
+  if (S.flicker){ const n = hn(Math.floor(t * 24), 3, 11); ctx.globalAlpha = Math.abs(n - 0.5) * 0.14; ctx.fillStyle = n > 0.5 ? '#FFFFFF' : '#000000'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
   if (flash > 0){ ctx.globalAlpha = flash; ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
 }
 function startPlay(){
   if (!filled()){ toast('먼저 사진을 넣어 주세요.'); return; }
   stopPlay();
-  playCache = buildCache(PW, PH); playing = true;
+  playCache = buildCache(PW, PH, true); playing = true;
   $('#playBtn').textContent = '정지';
   const T = totalTime(playCache.order.length), t0 = performance.now();
   const step = now => {
@@ -1069,9 +1602,13 @@ async function makeVideo(){
   if (!mime){ toast('이 브라우저는 동영상 만들기를 지원하지 않습니다. 최신 크롬이나 아이폰 사파리를 이용해 주세요.', 5000); return; }
   stopPlay();
   const {W, H} = videoDims();
+  showBusy('동영상 준비 중'); await nextFrame();
+  let C;
+  try { C = buildCache(W, H, false); } catch (e) { hideBusy(); toast('동영상을 준비하지 못했습니다. 사진 수를 줄여 다시 시도해 주세요.'); return; }
+  hideBusy();
   rec.width = W; rec.height = H;
   const rctx = rec.getContext('2d');
-  const C = buildCache(W, H), T = totalTime(C.order.length);
+  const T = totalTime(C.order.length);
   recording = true; document.body.classList.add('locked');
   pv.style.display = 'none'; rec.style.display = 'block';
   drawFrame(rctx, C, 0);
@@ -1141,17 +1678,24 @@ async function saveSplit(){
   const c = document.createElement('canvas'); c.width = 1080; c.height = 1440;
   const x = c.getContext('2d'); x.imageSmoothingQuality = 'high';
   const p = placement(sc, TW, TH), out = [];
+  const f2 = Object.assign({}, S.flt, {frame:'none'}), act = fltActive(f2);
+  const whole = (act && (f2.lens !== 'none' || f2.glow > 0)) ? makeWhole((xx, lw, lh, sc2) => xx.drawImage(sc.img, p.dx*sc2, p.dy*sc2, p.dw*sc2, p.dh*sc2), TW, TH) : null;
   try {
     for (let k = 0; k < N; k++){
       showBusy(`조각 만드는 중 (${k+1}/${N})`, k / N); await nextFrame();
       const r = Math.floor(k / 3), cc = k % 3, post = N - k;
       x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, 1080, 1440);
       x.drawImage(sc.img, p.dx - cc*1080, p.dy - r*1440, p.dw, p.dh);
+      if (act){
+        const g = {ox:cc*1080, oy:r*1440, TW, TH, rs:1, idealBlk:2, seed:7, base:1080, whole};
+        applyFx(c, f2, g); drawOverlays(c, f2, g);
+      }
       const blob = await toBlob(c, 'image/jpeg', 0.95);
       out.push({k, post, file:new File([blob], `upload-${String(post).padStart(2,'0')}.jpg`, {type:'image/jpeg'})});
     }
   } catch (e) { hideBusy(); toast('조각을 만들지 못했습니다. 다시 시도해 주세요.'); return; }
   c.width = c.height = 0; hideBusy();
+  freeWhole(whole);
   const files = out.slice().sort((a, b) => a.post - b.post).map(o => o.file);
   const grid = out.map(o => ({file:o.file, label:`${o.post}번째로 올리기`}));
   const note = isIOS
